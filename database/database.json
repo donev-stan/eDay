@@ -1,0 +1,41 @@
+{
+    "sellers": [
+        {
+            "id": 1,
+            "picture": "https://robohash.org/set_set2/Stanislav?size=300x300",
+            "name": "Stanislav Donev",
+            "email": "donev@protonmail.com",
+            "phone": "+1 (828) 541-3449",
+            "password": "password",
+            "authorized": true
+        },
+        {
+            "id": 2,
+            "picture": "https://robohash.org/set_set2/Vilian?size=300x300",
+            "name": "Vilian Mihailov",
+            "email": "vilian@mail.com",
+            "phone": "+1 (866) 549-3745",
+            "password": "password",
+            "authorized": true
+        },
+        {
+            "id": 3,
+            "picture": "https://robohash.org/set_set2/Dobry?size=300x300",
+            "name": "Dobry Dobrev",
+            "email": "dobry@gmail.com",
+            "phone": "+1 (932) 545-3934",
+            "password": "password",
+            "authorized": true
+        },
+        {
+            "id": 4,
+            "picture": "https://robohash.org/set_set2/Raychev?size=300x300",
+            "name": "Stanislav Raychev",
+            "email": "raychev@gmail.com",
+            "phone": "+1 (932) 545-3934",
+            "password": "password",
+            "authorized": true
+        }
+    ],
+    "sales": []
+}

@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
-
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
@@ -22,9 +22,8 @@ export const Header = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link>All Sales</Nav.Link>
-          <Nav.Link>Sell Item</Nav.Link>
-          <Nav.Link>Sellers</Nav.Link>
+            <Nav.Link as={Link} to="/sales">All Sales</Nav.Link>
+            <Nav.Link as={Link} to="/sellers">All Sellers</Nav.Link>
         </Nav>
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
