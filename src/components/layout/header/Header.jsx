@@ -22,8 +22,8 @@ export const Header = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-            <Nav.Link as={Link} to="/sales">All Sales</Nav.Link>
-            <Nav.Link as={Link} to="/sellers">All Sellers</Nav.Link>
+            <Nav.Link as={Link} to="/sales">Sales</Nav.Link>
+            <Nav.Link as={Link} to="/sellers">Sellers</Nav.Link>
         </Nav>
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />

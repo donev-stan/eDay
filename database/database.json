@@ -6,7 +6,9 @@
             "name": "Stanislav Donev",
             "email": "donev@protonmail.com",
             "phone": "+1 (828) 541-3449",
+            "bio": "Blabalablabla Bala bla ba la la bla",
             "password": "password",
+            "rating": 0,
             "authorized": true
         },
         {
@@ -15,7 +17,9 @@
             "name": "Vilian Mihailov",
             "email": "vilian@mail.com",
             "phone": "+1 (866) 549-3745",
+            "bio": "Blabalablabla Bala bla ba la la bla",
             "password": "password",
+            "rating": 0,
             "authorized": true
         },
         {
@@ -24,7 +28,9 @@
             "name": "Dobry Dobrev",
             "email": "dobry@gmail.com",
             "phone": "+1 (932) 545-3934",
+            "bio": "Blabalablabla Bala bla ba la la bla",
             "password": "password",
+            "rating": 0,
             "authorized": true
         },
         {
@@ -33,7 +39,9 @@
             "name": "Stanislav Raychev",
             "email": "raychev@gmail.com",
             "phone": "+1 (932) 545-3934",
+            "bio": "Blabalablabla Bala bla ba la la bla",
             "password": "password",
+            "rating": 0,
             "authorized": true
         }
     ],

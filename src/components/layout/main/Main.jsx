@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router";
-import { Sellers } from "../../Sellers";
+import { Sellers } from "../../seller/Sellers";
 
 export const Main = () => {
   return (
