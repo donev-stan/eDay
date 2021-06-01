@@ -29,6 +29,7 @@ export const Header = () => {
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
           <Button variant="outline-success">Search</Button>
         </Form>
+            <Nav.Link as={Link} to="/login">Login</Nav.Link>
       </Navbar.Collapse>
     </Navbar>
   );
