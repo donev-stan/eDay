@@ -3,6 +3,8 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import ListGroupItem from "react-bootstrap/ListGroupItem";
+import Badge from "react-bootstrap/Badge";
+import { Link } from "react-router-dom";
 
 export const SellerCard = ({seller}) => {
     return (
@@ -17,10 +19,10 @@ export const SellerCard = ({seller}) => {
                 <ListGroupItem>{seller.email}</ListGroupItem>
                 <ListGroupItem>{seller.phone}</ListGroupItem>
                 <ListGroupItem>Rating: {seller.rating}</ListGroupItem>
+                <ListGroupItem>Badges: <Badge variant="success">New</Badge>{' '}</ListGroupItem>
               </ListGroup>
               <Card.Body>
-                {/* <Card.Link as={Link} to="/sales">Card Link</Card.Link>
-                <Card.Link as={Link} to="/sales">Another Link</Card.Link> */}
+                <Card.Link as={Link} to={`/seller/${seller.id}`}>View Profile</Card.Link>
               </Card.Body>
             </Card>
         </Col>
