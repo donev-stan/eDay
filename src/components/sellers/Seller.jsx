@@ -26,7 +26,7 @@ export const Seller = (props) => {
           <Card className="text-center">
             <Card.Header>Badges: </Card.Header>
             <Card.Body>
-              <Card.Title>{seller.name}</Card.Title>
+              <Card.Title>{seller.firstName} {seller.lastName}</Card.Title>
               <Card.Text>{seller.bio}</Card.Text>
               <Button variant="info">Upvote</Button>
               <Button variant="warning" className="ml-2">Downvote</Button>

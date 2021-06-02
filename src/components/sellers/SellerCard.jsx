@@ -12,7 +12,7 @@ export const SellerCard = ({seller}) => {
             <Card className="my-3">
               <Card.Img variant="top" src={seller.picture} />
               <Card.Body>
-                <Card.Title>{seller.name}</Card.Title>
+                <Card.Title>{seller.firstName} {seller.lastName}</Card.Title>
                 <Card.Text>{seller.bio}</Card.Text>
               </Card.Body>
               <ListGroup className="list-group-flush">
