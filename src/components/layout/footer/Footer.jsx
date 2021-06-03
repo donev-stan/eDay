@@ -1,5 +1,4 @@
-import React from 'react'
-import { Login } from '../../auth/login/Login'
+// import React from 'react'
 
 export const Footer = () => {
     return (

@@ -2,19 +2,20 @@ import React from "react";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
-export const SaleCard = () => {
+export const SaleCard = ({ sale }) => {
   return (
-    <Col>
+    <Col className="my-2" md={6} lg={4}>
       <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
+        <Card.Img variant="top" src={sale.pictures[0]} />
         <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
+          <Card.Title>{sale.title}</Card.Title>
+          <Card.Text>{sale.description}</Card.Text>
+
+          <Card.Link as={Link} to={`/sales/${sale.id}`}>
+            <Button variant="primary">View more</Button>
+          </Card.Link>
         </Card.Body>
       </Card>
     </Col>

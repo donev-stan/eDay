@@ -1,5 +1,4 @@
 import React from 'react'
-import { propTypes } from 'react-bootstrap/esm/Image';
 import { Redirect } from 'react-router';
 import { getLoggedSeller } from '../services/AuthService'
 

@@ -4,16 +4,17 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import Link from "react-bootstrap/NavLink";
+import Card from "react-bootstrap/Card";
+import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
 import { login } from "../../../core/services/AuthService";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 export const Login = () => {
   const [sellerData, setSellerData] = useState({});
   const [redirect, setRedirect] = useState(false);
+  const [error, setError] = useState(false);
+
 
   const onInputChange = (event) => {
     event.persist();
@@ -31,13 +32,22 @@ export const Login = () => {
       .then((_) => {
         setRedirect(true);
       })
-      .catch((error) => console.error(error));
+      .catch((error) => setError(error.message));
   };
 
   return (
     <>
       {redirect && <Redirect to="/sales" />}
       <Container className="my-4">
+
+        {
+          error && (
+            <Alert key={3} variant={"danger"} className="text-center">
+              {error}
+          </Alert>
+          )
+        }
+
         <Form onSubmit={onFormSubmit}>
           {/* Email */}
           <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -71,26 +81,24 @@ export const Login = () => {
           </Row>
 
           <Form.Group
-            className="mb-3 text-center"
+            className="my-4 text-center"
             controlId="formBasicRegistration"
           >
             <Form.Label>Don't have an account yet?</Form.Label> <br />
-            <Container>
-              <Row className="justify-content-center">
+            <Container className="justify-content-center my-2" style={{width: '80%'}}>
+              <Row>
                 <Col>
-                  <Image src="./register1.png" rounded />
+                  <Image src="https://image.flaticon.com/icons/png/512/2921/2921112.png" style={imgStyles} rounded />
                 </Col>
 
                 <Col>
-                  <Navbar>
-                      <Nav.Link to="/register">
-                        Register
-                      </Nav.Link>
-                  </Navbar>
+                  <Card.Link as={Link} to={`/register`}>
+                    <Button variant="success" className="mt-2">Register</Button>
+                  </Card.Link>
                 </Col>
 
                 <Col>
-                  <Image src="./register2.png" rounded />
+                  <Image src="https://img-premium.flaticon.com/png/512/2654/2654572.png?token=exp=1622675411~hmac=fbcbe0808f2bdb6abec337371e76146a" style={imgStyles} rounded />
                 </Col>
               </Row>
             </Container>
@@ -99,4 +107,9 @@ export const Login = () => {
       </Container>
     </>
   );
+};
+
+const imgStyles = {
+  width: '80px',
+  height: '80px',
 };

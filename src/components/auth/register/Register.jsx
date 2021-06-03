@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Alert from "react-bootstrap/Alert";
 import { register } from "../../../core/services/AuthService";
 import { Redirect } from "react-router";
 
@@ -22,6 +23,8 @@ export const Register = () => {
     },
     redirect: false,
   });
+
+  const [error, setError] = useState(false);
 
   const onInputChange = (event) => {
     event.persist();
@@ -43,7 +46,7 @@ export const Register = () => {
           redirect: true,
         });
       })
-      .catch((error) => console.error(error));
+      .catch((error) => setError(error.message));
   };
 
   return (
@@ -51,6 +54,15 @@ export const Register = () => {
       {userData.redirect && <Redirect to="/login" />}
       <Container className="my-4">
         <Form onSubmit={onFormSubmit}>
+
+        {
+          error && (
+            <Alert key={3} variant={"danger"} className="text-center">
+              {error}
+          </Alert>
+          )
+        }
+
           {/* Name*/}
           <Row className="mb-3">
             <Col>

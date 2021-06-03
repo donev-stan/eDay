@@ -11,6 +11,7 @@
       "createdDate": "2021-05-21T06:11:51.870Z",
       "password": "password",
       "rating": 0,
+      "badges": ["New"],
       "address": {
         "city": "Nova Zagora",
         "zip": "8900"
@@ -27,6 +28,7 @@
       "createdDate": "2021-05-21T06:11:51.870Z",
       "password": "password",
       "rating": 0,
+      "badges": ["New"],
       "address": {
         "city": "Sliven",
         "zip": "9550"
@@ -43,6 +45,7 @@
       "createdDate": "2021-05-21T06:11:51.870Z",
       "password": "password",
       "rating": 0,
+      "badges": ["New"],
       "address": {
         "city": "Plovdiv",
         "zip": "4000"
@@ -59,85 +62,69 @@
       "createdDate": "2021-05-21T06:11:51.870Z",
       "password": "password",
       "rating": 0,
+      "badges": ["New"],
       "address": {
         "city": "Nova Zagora",
         "zip": "8900"
       }
-    },
-    {
-      "firstName": "Stanislav",
-      "lastName": "Donev",
-      "email": "testicle@gmail.com",
-      "phone": "0895955205",
-      "bio": "",
-      "password": "123321",
-      "rating": 0,
-      "address": {
-        "city": "",
-        "zip": ""
-      },
-      "city": "Nova Zagora",
-      "zip": "8900",
-      "picture": "https://robohash.org/set_set2/Stanislav?size=300x300",
-      "id": 5
     }
   ],
   "sales": [
-      {
-          "id": 1,
-          "title": "Razer Blade 15",
-          "description": "Blabla bla bla",
-          "creatorID": 3,
-          "createdDate": "2021-05-21T06:11:51.870Z",
-          "lastUpdated": "2021-05-21T06:11:51.870Z",
-          "category": "electronics",
-          "pictures": [
-              "link1",
-              "link2",
-              "link3"
-          ]
-      },
-      {
-        "id": 3,
-        "title": "Razer Blade 15",
-        "description": "Blabla bla bla",
-        "creatorID": 3,
-        "createdDate": "2021-05-21T06:11:51.870Z",
-        "lastUpdated": "2021-05-21T06:11:51.870Z",
-        "category": "electronics",
-        "pictures": [
-            "link1",
-            "link2",
-            "link3"
-        ]
+    {
+      "id": 1,
+      "title": "Razer Blade 15",
+      "description": "Blabla bla bla",
+      "creatorID": 3,
+      "createdDate": "2021-05-21T06:11:51.870Z",
+      "lastUpdated": "2021-05-21T06:11:51.870Z",
+      "category": "electronics",
+      "pictures": [
+        "https://picsum.photos/1280/1080?random=1",
+        "link2",
+        "link3"
+      ]
     },
     {
-        "id": 4,
-        "title": "Razer Blade 15",
-        "description": "Blabla bla bla",
-        "creatorID": 3,
-        "createdDate": "2021-05-21T06:11:51.870Z",
-        "lastUpdated": "2021-05-21T06:11:51.870Z",
-        "category": "electronics",
-        "pictures": [
-            "link1",
-            "link2",
-            "link3"
-        ]
+      "id": 3,
+      "title": "Razer Blade 15",
+      "description": "Blabla bla bla",
+      "creatorID": 3,
+      "createdDate": "2021-05-21T06:11:51.870Z",
+      "lastUpdated": "2021-05-21T06:11:51.870Z",
+      "category": "electronics",
+      "pictures": [
+        "https://picsum.photos/1280/1080?random=2",
+        "link2",
+        "link3"
+      ]
     },
     {
-        "id": 5,
-        "title": "Razer Blade 15",
-        "description": "Blabla bla bla",
-        "creatorID": 3,
-        "createdDate": "2021-05-21T06:11:51.870Z",
-        "lastUpdated": "2021-05-21T06:11:51.870Z",
-        "category": "electronics",
-        "pictures": [
-            "link1",
-            "link2",
-            "link3"
-        ]
+      "id": 4,
+      "title": "Razer Blade 15",
+      "description": "Blabla bla bla",
+      "creatorID": 3,
+      "createdDate": "2021-05-21T06:11:51.870Z",
+      "lastUpdated": "2021-05-21T06:11:51.870Z",
+      "category": "electronics",
+      "pictures": [
+        "https://picsum.photos/1280/1080?random=3",
+        "link2",
+        "link3"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Razer Blade 15",
+      "description": "Blabla bla bla",
+      "creatorID": 1,
+      "createdDate": "2021-05-21T06:11:51.870Z",
+      "lastUpdated": "2021-05-21T06:11:51.870Z",
+      "category": "electronics",
+      "pictures": [
+        "https://picsum.photos/1280/1080?random=4",
+        "link2",
+        "link3"
+      ]
     }
   ]
 }

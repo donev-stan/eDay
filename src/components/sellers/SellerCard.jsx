@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 export const SellerCard = ({seller}) => {
     return (
-        <Col>
+        <Col lg={4}>
             <Card className="my-3">
               <Card.Img variant="top" src={seller.picture} />
               <Card.Body>

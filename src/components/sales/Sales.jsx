@@ -12,10 +12,10 @@ export const Sales = () => {
         getAllSales().then(response => {
             setSales(response.data);
         }).catch(error => console.error(error));
-    }, [sales])
+    }, [])
 
   return (
-    <Container>
+    <Container className="my-4 text-center">
         <Row>
             { sales.map(sale => <SaleCard key={sale.id} sale={sale} />) }
         </Row>
