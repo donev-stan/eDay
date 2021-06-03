@@ -8,7 +8,7 @@ export function getLoggedSeller() {
 }
 
 export async function login(sellerData) {
-    const sellers = (await getAllSellers()).data;
+    const sellers = await getAllSellers();
 
     const loggedSeller = sellers.find(s => s.email === sellerData.email && s.password === sellerData.password.toString());
 
@@ -21,8 +21,9 @@ export async function login(sellerData) {
 }
 
 export async function register(userData) {
-    const users = (await getAllSellers()).data;
+    const users = await getAllSellers();
 
+    console.log(await users);
     if (users.find(u => u.email === userData.email)) {
         throw new Error('Email already exists!');
     }

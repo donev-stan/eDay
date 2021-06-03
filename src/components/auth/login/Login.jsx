@@ -98,7 +98,7 @@ export const Login = () => {
                 </Col>
 
                 <Col>
-                  <Image src="https://img-premium.flaticon.com/png/512/2654/2654572.png?token=exp=1622675411~hmac=fbcbe0808f2bdb6abec337371e76146a" style={imgStyles} rounded />
+                  <Image src="https://image.flaticon.com/icons/png/512/3456/3456426.png" style={imgStyles} rounded />
                 </Col>
               </Row>
             </Container>

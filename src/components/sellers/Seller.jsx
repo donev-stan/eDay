@@ -6,35 +6,43 @@ import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import Badge from "react-bootstrap/Badge";
-import { getLoggedSeller } from "../../core/services/AuthService";
+// import Badge from "react-bootstrap/Badge";
+import { getLoggedSeller, logout } from "../../core/services/AuthService";
+import { Link } from "react-router-dom";
 
 export const Seller = (props) => {
   const [seller, setSeller] = useState({});
   const [isSeller, setIsSeller] = useState(false);
 
   useEffect(() => {
+    
     if (props.computedMatch.params.id) {
       getSellerByID(props.computedMatch.params.id).then((response) => {
         setSeller(response.data);
       });
+    } else {
+      setIsSeller(true);
+      const loggedSeller = getLoggedSeller();
+      setSeller(loggedSeller);
     }
   }, [props.computedMatch.params.id]);
 
-  useEffect(() => {
-    const loggedSeller = getLoggedSeller();
+  // check if logged user is the seller
+  // useEffect(() => {
+  //   const loggedSeller = getLoggedSeller();
 
-    setIsSeller(false);
-    if (!seller.id) {
-      setSeller(loggedSeller);
-      setIsSeller(true);
-      return;
-    }
+  //   if (!seller.id) {
+  //     setSeller(loggedSeller);
+  //     setIsSeller(true);
+  //     return;
+  //   }
 
-    if (loggedSeller.id === seller.id) {
-      setIsSeller(true);
-    }
-  }, []);
+  //   if (loggedSeller.id === seller.id) {
+  //     setIsSeller(true);
+  //   }
+  // }, []);
+
+  const userLogout = (e) => logout();
 
   return (
     <Container className="mt-4">
@@ -59,28 +67,30 @@ export const Seller = (props) => {
             {isSeller ? (
               <>
                 <Col>
-                  <Button variant="info">Logout</Button>
+                  <Link to="/login">
+                    <Button variant="info" onClick={userLogout}>
+                      Logout
+                    </Button>
+                  </Link>
                 </Col>
                 <Col>
-                  <Button variant="warning">
-                    Edit
-                  </Button>
+                  <Button variant="warning">Edit</Button>
                 </Col>
                 <Col>
-                  <Button variant="danger">
-                    Delete
-                  </Button>
+                  <Button variant="danger">Delete</Button>
                 </Col>
               </>
             ) : (
               <>
-                <Button variant="info">Upvote</Button>
-                <Button variant="warning">
-                  Downvote
-                </Button>
-                <Button variant="danger">
-                  Report
-                </Button>
+                <Col>
+                  <Button variant="info">Upvote</Button>
+                </Col>
+                <Col>
+                  <Button variant="warning">Downvote</Button>
+                </Col>
+                <Col>
+                  <Button variant="danger">Report</Button>
+                </Col>
               </>
             )}
           </Row>
@@ -90,9 +100,7 @@ export const Seller = (props) => {
         <h3>{seller.name} Currently For Sale: </h3>
       </Row>
 
-      <Row>
-
-      </Row>
+      <Row></Row>
     </Container>
   );
 };

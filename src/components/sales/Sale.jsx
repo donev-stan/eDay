@@ -62,15 +62,23 @@ export const Sale = (props) => {
                 </Carousel.Item>
               ))} */}
 
-            <Carousel.Item>
-              <img className="d-block w-100" src={sale.pictures[0]} />
-            </Carousel.Item>
-            <Carousel.Item>
-              <img className="d-block w-100" src={sale.pictures[1]} />
-            </Carousel.Item>
-            <Carousel.Item>
-              <img className="d-block w-100" src={sale.pictures[2]} />
-            </Carousel.Item>
+            {sale.pictures[0] && (
+              <Carousel.Item>
+                <img className="d-block w-100" src={sale.pictures[0]} />
+              </Carousel.Item>
+            )}
+
+            {sale.pictures[1] && (
+              <Carousel.Item>
+                <img className="d-block w-100" src={sale.pictures[1]} />
+              </Carousel.Item>
+            )}
+
+            {sale.pictures[2] && (
+              <Carousel.Item>
+                <img className="d-block w-100" src={sale.pictures[2]} />
+              </Carousel.Item>
+            )}
           </Carousel>
 
           <Container className="mt-2">

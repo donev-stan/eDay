@@ -95,6 +95,27 @@
         "New"
       ],
       "id": 5
+    },
+    {
+      "firstName": "Stanislav",
+      "lastName": "Donev",
+      "email": "donev@gmail.com",
+      "phone": "0895955205",
+      "bio": "",
+      "password": "123",
+      "rating": 0,
+      "address": {
+        "city": "",
+        "zip": ""
+      },
+      "city": "Nova Zagora",
+      "zip": "8900",
+      "picture": "https://robohash.org/set_set2/StanislavDonev10?size=300x300",
+      "badges": [
+        "New"
+      ],
+      "createdDate": "2021-06-03T21:29:03.615Z",
+      "id": 6
     }
   ],
   "sales": [
@@ -231,6 +252,21 @@
       "createdDate": "2021-06-03T20:08:48.033Z",
       "lastUpdated": "2021-06-03T20:08:48.033Z",
       "id": 9
+    },
+    {
+      "title": "Porsche 911 Turbo S",
+      "description": "asvav",
+      "price": "12344",
+      "condition": "New",
+      "creatorID": 6,
+      "pictures": [
+        "https://upload.wikimedia.org/wikipedia/commons/7/7c/Porsche_992_Carrera_4S_Genf_2019_1Y7A5561.jpg",
+        "https://picsum.photos/1920/1080?random=2",
+        null
+      ],
+      "createdDate": "2021-06-03T21:40:20.841Z",
+      "lastUpdated": "2021-06-03T21:40:20.841Z",
+      "id": 10
     }
   ]
 }

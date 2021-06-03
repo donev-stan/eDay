@@ -22,7 +22,7 @@ export const Sales = (props) => {
   }, [props.location.search]);
 
   return (
-    <Container className="my-4 text-center">
+    <Container className="my-4 text-center" fluid style={{width: '80%'}}>
       <Row>
         {error ? (
           <>
