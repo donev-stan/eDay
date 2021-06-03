@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Form from "react-bootstrap/Form";
@@ -6,15 +6,15 @@ import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import { Link, withRouter } from "react-router-dom";
 
-const Header = withRouter(props => {
-  const [searchParam, setSeachParam] = useState('');
+const Header = withRouter((props) => {
+  const [searchParam, setSeachParam] = useState("");
 
   const onFormSubmit = (event) => {
     event.preventDefault();
 
-    const pathName = props.location.pathname.split('/')[1];
+    const pathName = props.location.pathname.split("/")[1];
 
-    const historyObject = { pathName: `/${pathName}`};
+    const historyObject = { pathName: `/${pathName}` };
 
     if (searchParam) {
       historyObject.search = `?q=${searchParam}`;
@@ -34,7 +34,7 @@ const Header = withRouter(props => {
         <img
           alt=""
           // src="./logo-bag.png"
-          src="https://image.flaticon.com/icons/png/512/2258/2258432.png"
+          src="https://image.flaticon.com/icons/png/512/2984/2984530.png"
           width="52"
           height="52"
           className="d-inline-block align-center ml-2 mr-2"
@@ -55,8 +55,15 @@ const Header = withRouter(props => {
           </Nav.Link>
         </Nav>
         <Form inline onSubmit={onFormSubmit}>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={onSearchInputChange} />
-          <Button variant="outline-success" type="submit">Search</Button>
+          <FormControl
+            type="text"
+            placeholder="Search"
+            className="mr-sm-2"
+            onChange={onSearchInputChange}
+          />
+          <Button variant="outline-success" type="submit">
+            Search
+          </Button>
         </Form>
         <Nav.Link className="text-warning" as={Link} to="/profile">
           Profile

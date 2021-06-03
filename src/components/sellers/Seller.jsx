@@ -23,67 +23,75 @@ export const Seller = (props) => {
 
   useEffect(() => {
     const loggedSeller = getLoggedSeller();
-    
+
+    setIsSeller(false);
     if (!seller.id) {
       setSeller(loggedSeller);
       setIsSeller(true);
       return;
     }
-    
+
     if (loggedSeller.id === seller.id) {
       setIsSeller(true);
     }
   }, []);
 
   return (
-    <Container>
+    <Container className="mt-4">
       <Row className="my-2">
         <Col lg={4} className="my-2 text-center">
           <Image src={seller.picture} thumbnail alt="" />
         </Col>
         <Col lg={8} className="my-2">
           <Card className="text-center">
-            <Card.Header>
-              Badges:{" "}
-              {seller.badges &&
-                seller.badges.map((badge, i) => (
-                  <Badge bg="success" text="dark" key={i}>
-                    {badge}
-                  </Badge>
-                ))}
-            </Card.Header>
+            <Card.Header>{seller.phone}</Card.Header>
             <Card.Body>
               <Card.Title>
                 {seller.firstName} {seller.lastName}
               </Card.Title>
               <Card.Text>{seller.bio}</Card.Text>
-              {isSeller ? (
-                 <>
-                 <Button variant="info">Logout</Button>
-                 <Button variant="warning" className="ml-2">
-                   Edit
-                 </Button>
-                 <Button variant="danger" className="ml-4">
-                   Delete
-                 </Button>
-               </>
-              ) : (
-                <>
-                  <Button variant="info">Upvote</Button>
-                  <Button variant="warning" className="ml-2">
-                    Downvote
-                  </Button>
-                  <Button variant="danger" className="ml-4">
-                    Report
-                  </Button>
-                </>
-              )}
             </Card.Body>
             <Card.Footer className="text-muted">
               {seller.createdDate}
             </Card.Footer>
           </Card>
+          <Row className="text-center mt-2">
+            {isSeller ? (
+              <>
+                <Col>
+                  <Button variant="info">Logout</Button>
+                </Col>
+                <Col>
+                  <Button variant="warning">
+                    Edit
+                  </Button>
+                </Col>
+                <Col>
+                  <Button variant="danger">
+                    Delete
+                  </Button>
+                </Col>
+              </>
+            ) : (
+              <>
+                <Button variant="info">Upvote</Button>
+                <Button variant="warning">
+                  Downvote
+                </Button>
+                <Button variant="danger">
+                  Report
+                </Button>
+              </>
+            )}
+          </Row>
         </Col>
+      </Row>
+      <Row className="mt-4">
+        <h3>{seller.name} Currently For Sale: </h3>
+      </Row>
+
+      <Row>
+
       </Row>
     </Container>
   );

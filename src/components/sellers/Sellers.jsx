@@ -22,7 +22,7 @@ export const Sellers = (props) => {
   }, [props.location.search]);
 
   return (
-    <Container>
+    <Container className="mt-4">
       <Row>
         {error ? (
           <>

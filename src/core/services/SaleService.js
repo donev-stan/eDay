@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getLoggedSeller } from "./AuthService";
 
 const url = "http://localhost:3000";
 
@@ -19,6 +20,11 @@ export function sellItem(item) {
 
   const newItem = {
     ...tempItem,
+    creatorID: getLoggedSeller().id,
     pictures: [link1, link2, link3],
+    createdDate: new Date(),
+    lastUpdated: new Date()
   };
+
+  return axios.post(`${url}/sales`, newItem);
 }
