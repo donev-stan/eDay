@@ -4,34 +4,31 @@ import Nav from "react-bootstrap/Nav";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
-import { getLoggedSeller, logout } from "../../../core/services/AuthService";
+import { Link, withRouter } from "react-router-dom";
 
-export const Header = () => {
+const Header = withRouter(props => {
+  const [searchParam, setSeachParam] = useState('');
 
-  const [loggedSeller, setLoggedSeller] = useState(false);
+  const onFormSubmit = (event) => {
+    event.preventDefault();
 
-  const onLogout = () => {
-    logout();
-    setLoggedSeller(false);
-  }
+    const pathName = props.location.pathname.split('/')[1];
 
-  useEffect(() => {
-    const seller = getLoggedSeller();
-    
-    seller ? setLoggedSeller(true) : setLoggedSeller(false);
-    // if (seller) {
-    //   setLoggedSeller(true);
-    // } else {
-    //   setLoggedSeller(false);
-    // }
-  }, [])
+    const historyObject = { pathName: `/${pathName}`};
 
-  const seller = getLoggedSeller();
+    if (searchParam) {
+      historyObject.search = `?q=${searchParam}`;
+    }
 
+    props.history.push(historyObject);
+  };
+
+  const onSearchInputChange = (event) => {
+    // event.persist();
+    setSeachParam(event.target.value);
+  };
 
   return (
-    
     <Navbar bg="dark" variant="dark" expand="md">
       <Navbar.Brand>
         <img
@@ -57,21 +54,16 @@ export const Header = () => {
             Sell Item
           </Nav.Link>
         </Nav>
-        <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-success">Search</Button>
+        <Form inline onSubmit={onFormSubmit}>
+          <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={onSearchInputChange} />
+          <Button variant="outline-success" type="submit">Search</Button>
         </Form>
-        {console.log(seller)}
-        {!seller ? (
-          <Nav.Link className="text-warning" as={Link} to="/login">
-            Login
-          </Nav.Link>
-        ) : (
-          <Nav.Link className="text-danger" as={Link} to="/sales" onClick={onLogout}>
-            Logout
-          </Nav.Link>
-        )}
+        <Nav.Link className="text-warning" as={Link} to="/profile">
+          Profile
+        </Nav.Link>
       </Navbar.Collapse>
     </Navbar>
   );
-};
+});
+
+export default Header;

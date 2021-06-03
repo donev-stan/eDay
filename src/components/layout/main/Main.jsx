@@ -20,6 +20,8 @@ export const Main = () => {
         
         <AuthorizedRoute exact path="/sell" component={SellItem} />
 
+        <AuthorizedRoute exact path="/profile" component={Seller} />
+
         <Route exact path="/login" component={Login}/>
         <Route exact path="/register" component={Register}/>
     </Switch>

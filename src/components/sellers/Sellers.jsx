@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import { SellerCard } from './SellerCard';
 
-export const Sellers = () => {
+export const Sellers = (props) => {
   const [sellers, setSellers] = useState([]);
 
   useEffect(() => {

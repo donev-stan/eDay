@@ -14,20 +14,27 @@ export const Seller = (props) => {
   const [isSeller, setIsSeller] = useState(false);
 
   useEffect(() => {
-    getSellerByID(props.computedMatch.params.id).then((response) => {
-      setSeller(response.data);
-    });
+    if (props.computedMatch.params.id) {
+      getSellerByID(props.computedMatch.params.id).then((response) => {
+        setSeller(response.data);
+      });
+    }
   }, [props.computedMatch.params.id]);
 
   useEffect(() => {
     const loggedSeller = getLoggedSeller();
+    
+    if (!seller.id) {
+      setSeller(loggedSeller);
+      setIsSeller(true);
+      return;
+    }
+    
     if (loggedSeller.id === seller.id) {
       setIsSeller(true);
     }
-    return () => {
-      setIsSeller(false);
-    };
   }, []);
+
   return (
     <Container>
       <Row className="my-2">
@@ -51,7 +58,15 @@ export const Seller = (props) => {
               </Card.Title>
               <Card.Text>{seller.bio}</Card.Text>
               {isSeller ? (
-                ""
+                 <>
+                 <Button variant="info">Logout</Button>
+                 <Button variant="warning" className="ml-2">
+                   Edit
+                 </Button>
+                 <Button variant="danger" className="ml-4">
+                   Delete
+                 </Button>
+               </>
               ) : (
                 <>
                   <Button variant="info">Upvote</Button>

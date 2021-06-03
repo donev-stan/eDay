@@ -4,15 +4,17 @@ import Row from "react-bootstrap/Row";
 import { getAllSales } from "../../core/services/SaleService";
 import { SaleCard } from "./SaleCard";
 
-export const Sales = () => {
+export const Sales = (props) => {
 
     const [sales, setSales] = useState([]);
 
     useEffect(() => {
-        getAllSales().then(response => {
-            setSales(response.data);
+        const searchParam = props.location.search.split('=')[1];  
+
+        getAllSales(searchParam).then(sales => {
+            setSales(sales);
         }).catch(error => console.error(error));
-    }, [])
+    }, [props.location.search])
 
   return (
     <Container className="my-4 text-center">

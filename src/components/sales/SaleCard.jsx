@@ -11,6 +11,7 @@ export const SaleCard = ({ sale }) => {
         <Card.Img variant="top" src={sale.pictures[0]} />
         <Card.Body>
           <Card.Title>{sale.title}</Card.Title>
+          <Card.Text>Price: ${sale.price}</Card.Text>
           <Card.Text>{sale.description}</Card.Text>
 
           <Card.Link as={Link} to={`/sales/${sale.id}`}>

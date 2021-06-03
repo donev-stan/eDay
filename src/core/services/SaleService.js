@@ -2,8 +2,12 @@ import axios from "axios";
 
 const url = "http://localhost:3000";
 
-export function getAllSales() {
-  return axios.get(`${url}/sales`);
+export async function getAllSales(searchParam) {
+  const sales = (await axios.get(`${url}/sales`)).data;
+
+  if (!searchParam) return sales;
+
+  return sales.filter(sale => sale.title.toLowerCase().includes(searchParam.toLowerCase()) || sale.description.toLowerCase().includes(searchParam.toLowerCase()));
 }
 
 export function getSaleByID(sellerID) {

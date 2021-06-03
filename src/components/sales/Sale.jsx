@@ -39,9 +39,9 @@ export const Sale = (props) => {
           setSeller(response.data);
 
           const loggedSeller = getLoggedSeller();
-            if (loggedSeller.id === sale.creatorID) {
-              setIsSeller(true);
-            }
+          if (loggedSeller.id === sale.creatorID) {
+            setIsSeller(true);
+          }
         });
       });
   }, [props.computedMatch.params.id, sale.creatorID]);
@@ -49,21 +49,28 @@ export const Sale = (props) => {
   return (
     <Container className="my-4" fluid>
       <Row>
-        {console.log(sale)}
-        {console.log(seller)}
-
         {/* Main content (sale item) */}
         <Col lg="8">
           {/* Sale Item Pictures */}
           <Carousel fade>
-            {sale.pictures &&
+            {/* {sale.pictures &&
               sale.pictures.forEach((pictureLink) => (
                 // <SaleImage key={pictureLink} pictureLink={pictureLink} />
                 <Carousel.Item>
                   {console.log(pictureLink)}
                   <img className="d-block w-100" src={pictureLink} />
                 </Carousel.Item>
-              ))}
+              ))} */}
+
+            <Carousel.Item>
+              <img className="d-block w-100" src={sale.pictures[0]} />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img className="d-block w-100" src={sale.pictures[1]} />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img className="d-block w-100" src={sale.pictures[2]} />
+            </Carousel.Item>
           </Carousel>
 
           <Container className="mt-2">
