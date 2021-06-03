@@ -27,6 +27,8 @@ export const Header = () => {
     // }
   }, [])
 
+  const seller = getLoggedSeller();
+
 
   return (
     
@@ -59,12 +61,13 @@ export const Header = () => {
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
           <Button variant="outline-success">Search</Button>
         </Form>
-        {!loggedSeller ? (
-          <Nav.Link as={Link} to="/login">
+        {console.log(seller)}
+        {!seller ? (
+          <Nav.Link className="text-warning" as={Link} to="/login">
             Login
           </Nav.Link>
         ) : (
-          <Nav.Link as={Link} to="/sales" onClick={onLogout}>
+          <Nav.Link className="text-danger" as={Link} to="/sales" onClick={onLogout}>
             Logout
           </Nav.Link>
         )}

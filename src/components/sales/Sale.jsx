@@ -57,11 +57,11 @@ export const Sale = (props) => {
           {/* Sale Item Pictures */}
           <Carousel fade>
             {sale.pictures &&
-              sale.pictures.forEach((picture) => (
-                // <SaleImage key={picture} picture={picture} />
+              sale.pictures.forEach((pictureLink) => (
+                // <SaleImage key={pictureLink} pictureLink={pictureLink} />
                 <Carousel.Item>
-                  {console.log(picture)}
-                  <img className="d-block w-100" src={picture} />
+                  {console.log(pictureLink)}
+                  <img className="d-block w-100" src={pictureLink} />
                 </Carousel.Item>
               ))}
           </Carousel>

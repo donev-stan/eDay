@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { sellItem } from "../../core/services/SellItem";
+import { sellItem } from "../../core/services/SaleService";
 
 export const SellItem = () => {
 
@@ -13,7 +13,7 @@ export const SellItem = () => {
 
         setItem(prevState => ({
             ...prevState,
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value.trim()
         }));
     }
 
@@ -43,6 +43,16 @@ export const SellItem = () => {
         <Form.Group className="my-2">
           <Form.Label>Description:</Form.Label>
           <Form.Control as="textarea" rows={3} name="description" onChange={onInputChange} required />
+        </Form.Group>
+
+        <Form.Group className="my-2">
+          <Form.Label>Price:</Form.Label>
+          <Form.Control name="price" onChange={onInputChange} required />
+        </Form.Group>
+
+        <Form.Group className="my-2">
+          <Form.Label>Condition:</Form.Label>
+          <Form.Control name="price" onChange={onInputChange} required />
         </Form.Group>
 
         {/* <Form.Group className="my-2">

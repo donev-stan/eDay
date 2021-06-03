@@ -2,53 +2,59 @@
   "sellers": [
     {
       "id": 1,
-      "picture": "https://robohash.org/set_set2/Stanislav?size=300x300",
-      "firstName": "Stanislav",
-      "lastName": "Donev",
-      "email": "donev@protonmail.com",
+      "picture": "https://robohash.org/set_set2/stoqn?size=300x300",
+      "firstName": "Stoqn",
+      "lastName": "Kolev",
+      "email": "kolev@mail.com",
       "phone": "+1 (828) 541-3449",
-      "bio": "Blabalablabla Bala bla ba la la bla",
+      "bio": "Ready to die but not stop.",
       "createdDate": "2021-05-21T06:11:51.870Z",
       "password": "password",
       "rating": 0,
-      "badges": ["New"],
+      "badges": [
+        "Crook"
+      ],
       "address": {
-        "city": "Nova Zagora",
-        "zip": "8900"
+        "city": "Burgas",
+        "zip": "6740"
       }
     },
     {
       "id": 2,
-      "picture": "https://robohash.org/set_set2/Vilian?size=300x300",
-      "firstName": "Vilian",
-      "lastName": "Mihailov",
-      "email": "vilian@mail.com",
+      "picture": "https://robohash.org/set_set2/foncho?size=300x300",
+      "firstName": "Foncho",
+      "lastName": "Tarikata",
+      "email": "foncho@mail.com",
       "phone": "+1 (866) 549-3745",
-      "bio": "Blabalablabla Bala bla ba la la bla",
+      "bio": "Foncho is smart ass.",
       "createdDate": "2021-05-21T06:11:51.870Z",
       "password": "password",
       "rating": 0,
-      "badges": ["New"],
+      "badges": [
+        "new"
+      ],
       "address": {
-        "city": "Sliven",
+        "city": "Sofiq",
         "zip": "9550"
       }
     },
     {
       "id": 3,
-      "picture": "https://robohash.org/set_set2/Dobry?size=300x300",
-      "firstName": "Dobry",
-      "lastName": "Dobrev",
-      "email": "dobry@gmail.com",
+      "picture": "https://robohash.org/set_set2/garjo?size=300x300",
+      "firstName": "Malkiq",
+      "lastName": "Garjo",
+      "email": "garjo@gmail.com",
       "phone": "+1 (932) 545-3934",
-      "bio": "Blabalablabla Bala bla ba la la bla",
+      "bio": "The little Garjo, also known as GAPI is little gypsy boy.",
       "createdDate": "2021-05-21T06:11:51.870Z",
       "password": "password",
       "rating": 0,
-      "badges": ["New"],
+      "badges": [
+        "Trader"
+      ],
       "address": {
-        "city": "Plovdiv",
-        "zip": "4000"
+        "city": "Burgas",
+        "zip": "6740"
       }
     },
     {
@@ -62,68 +68,98 @@
       "createdDate": "2021-05-21T06:11:51.870Z",
       "password": "password",
       "rating": 0,
-      "badges": ["New"],
+      "badges": [
+        "New"
+      ],
       "address": {
         "city": "Nova Zagora",
         "zip": "8900"
       }
+    },
+    {
+      "firstName": "Stanislav",
+      "lastName": "Donev",
+      "email": "donev.stanislavv@gmail.com",
+      "phone": "0895955205",
+      "bio": "asccccsadvsrnrgeafwegrdngfmhmgndfgefwegrngmhmfgndfgsdefawsdsafdbfgfasccccsadvsrnrgeafwegrdngfmhmgndfgefwegrngmhmfgndfgsdefawsdsafdbfgfasccccsadvsrnrgeafwegrdngfmhmgndfgefwegrngmhmfgndfgsdefawsdsafdbfgfasccccsadvsrnrgeafwegrdngfmhmgndfgefwegrngmhmfgndfgsdefawsdsafdbfgf",
+      "password": "123",
+      "rating": 0,
+      "address": {
+        "city": "",
+        "zip": ""
+      },
+      "city": "Nova Zagora",
+      "zip": "8900",
+      "picture": "https://robohash.org/set_set2/StanislavDonev9?size=300x300",
+      "badges": [
+        "New"
+      ],
+      "id": 5
     }
   ],
   "sales": [
     {
       "id": 1,
-      "title": "Razer Blade 15",
-      "description": "Blabla bla bla",
-      "creatorID": 3,
+      "title": "Achilles from Troy - Armor",
+      "description": "In Greek mythology, Achilles or Achilleus was a hero of the Trojan War. The new armour includes the Shield of Achilles, described in great detail in the poem.",
+      "creatorID": 1,
       "createdDate": "2021-05-21T06:11:51.870Z",
       "lastUpdated": "2021-05-21T06:11:51.870Z",
-      "category": "electronics",
+      "condition": "Used. Like new",
+      "price": 5000,
+      "category": "weaponry",
       "pictures": [
         "https://picsum.photos/1280/1080?random=1",
-        "link2",
-        "link3"
+        "https://picsum.photos/1280/1080?random=2",
+        "https://picsum.photos/1280/1080?random=3"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Foncho's BMW",
+      "description": "Foncho is Tarikat momche.",
+      "creatorID": 2,
+      "createdDate": "2021-05-21T06:11:51.870Z",
+      "lastUpdated": "2021-05-21T06:11:51.870Z",
+      "category": "auto",
+      "condition": "Used",
+      "price": 3000,
+      "pictures": [
+        "https://picsum.photos/1280/1080?random=11",
+        "https://picsum.photos/1280/1080?random=22",
+        "https://picsum.photos/1280/1080?random=33"
       ]
     },
     {
       "id": 3,
-      "title": "Razer Blade 15",
-      "description": "Blabla bla bla",
+      "title": "Xbox One Controller",
+      "description": "Microsoft Controller for Xbox/PC.",
       "creatorID": 3,
       "createdDate": "2021-05-21T06:11:51.870Z",
       "lastUpdated": "2021-05-21T06:11:51.870Z",
       "category": "electronics",
+      "condition": "New",
+      "price": 100,
       "pictures": [
-        "https://picsum.photos/1280/1080?random=2",
-        "link2",
-        "link3"
+        "https://picsum.photos/1280/1080?random=111",
+        "https://picsum.photos/1280/1080?random=222",
+        "https://picsum.photos/1280/1080?random=333"
       ]
     },
     {
       "id": 4,
-      "title": "Razer Blade 15",
-      "description": "Blabla bla bla",
-      "creatorID": 3,
+      "title": "Honda NC700",
+      "description": "Used motorcycle for sale.",
+      "creatorID": 4,
       "createdDate": "2021-05-21T06:11:51.870Z",
       "lastUpdated": "2021-05-21T06:11:51.870Z",
-      "category": "electronics",
+      "category": "auto",
+      "condition": "Battle Scared",
+      "price": 2500,
       "pictures": [
-        "https://picsum.photos/1280/1080?random=3",
-        "link2",
-        "link3"
-      ]
-    },
-    {
-      "id": 5,
-      "title": "Razer Blade 15",
-      "description": "Blabla bla bla",
-      "creatorID": 1,
-      "createdDate": "2021-05-21T06:11:51.870Z",
-      "lastUpdated": "2021-05-21T06:11:51.870Z",
-      "category": "electronics",
-      "pictures": [
-        "https://picsum.photos/1280/1080?random=4",
-        "link2",
-        "link3"
+        "https://picsum.photos/1280/1080?random=1111",
+        "https://picsum.photos/1280/1080?random=2222",
+        "https://picsum.photos/1280/1080?random=3333"
       ]
     }
   ]

@@ -7,16 +7,27 @@ import Image from "react-bootstrap/Image";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Badge from "react-bootstrap/Badge";
+import { getLoggedSeller } from "../../core/services/AuthService";
 
 export const Seller = (props) => {
   const [seller, setSeller] = useState({});
+  const [isSeller, setIsSeller] = useState(false);
 
   useEffect(() => {
-    getSellerByID(props.match.params.id).then((response) => {
+    getSellerByID(props.computedMatch.params.id).then((response) => {
       setSeller(response.data);
     });
-  }, [props.match.params.id]);
+  }, [props.computedMatch.params.id]);
 
+  useEffect(() => {
+    const loggedSeller = getLoggedSeller();
+    if (loggedSeller.id === seller.id) {
+      setIsSeller(true);
+    }
+    return () => {
+      setIsSeller(false);
+    };
+  }, []);
   return (
     <Container>
       <Row className="my-2">
@@ -27,22 +38,31 @@ export const Seller = (props) => {
           <Card className="text-center">
             <Card.Header>
               Badges:{" "}
-              {seller.badges && seller.badges.map((badge, i) => (
-                <Badge bg="success" text="dark" key={i}>{badge}</Badge>
-              ))}
+              {seller.badges &&
+                seller.badges.map((badge, i) => (
+                  <Badge bg="success" text="dark" key={i}>
+                    {badge}
+                  </Badge>
+                ))}
             </Card.Header>
             <Card.Body>
               <Card.Title>
                 {seller.firstName} {seller.lastName}
               </Card.Title>
               <Card.Text>{seller.bio}</Card.Text>
-              <Button variant="info">Upvote</Button>
-              <Button variant="warning" className="ml-2">
-                Downvote
-              </Button>
-              <Button variant="danger" className="ml-4">
-                Report
-              </Button>
+              {isSeller ? (
+                ""
+              ) : (
+                <>
+                  <Button variant="info">Upvote</Button>
+                  <Button variant="warning" className="ml-2">
+                    Downvote
+                  </Button>
+                  <Button variant="danger" className="ml-4">
+                    Report
+                  </Button>
+                </>
+              )}
             </Card.Body>
             <Card.Footer className="text-muted">
               {seller.createdDate}

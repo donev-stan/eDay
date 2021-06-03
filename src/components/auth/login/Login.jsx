@@ -21,7 +21,7 @@ export const Login = () => {
 
     setSellerData((prevState) => ({
       ...prevState,
-      [event.target.name]: event.target.value,
+      [event.target.name]: event.target.value.trim(),
     }));
   };
 
