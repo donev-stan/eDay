@@ -3,25 +3,38 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import { getAllSales } from "../../core/services/SaleService";
 import { SaleCard } from "./SaleCard";
+import Alert from "react-bootstrap/Alert";
 
 export const Sales = (props) => {
+  const [sales, setSales] = useState([]);
+  const [error, setError] = useState(false);
 
-    const [sales, setSales] = useState([]);
+  useEffect(() => {
+    const searchParam = props.location.search.split("=")[1];
 
-    useEffect(() => {
-        const searchParam = props.location.search.split('=')[1];  
-
-        getAllSales(searchParam).then(sales => {
-            setSales(sales);
-        }).catch(error => console.error(error));
-    }, [props.location.search])
+    getAllSales(searchParam).then((sales) => {
+      setSales(sales);
+      setError(false);
+      if (!(sales.length !== 0)) {
+        setError(true);
+      }
+    });
+  }, [props.location.search]);
 
   return (
     <Container className="my-4 text-center">
-        <Row>
-            { sales.map(sale => <SaleCard key={sale.id} sale={sale} />) }
-        </Row>
+      <Row>
+        {error ? (
+          <>
+            {" "}
+            <Alert key={5} variant={"info"} className="text-center my-4 text">
+              Nothing to show you <br /> Try another searching criteria{" "}
+            </Alert>{" "}
+          </>
+        ) : (
+          sales.map((sale) => <SaleCard key={sale.id} sale={sale} />)
+        )}
+      </Row>
     </Container>
-
   );
 };
