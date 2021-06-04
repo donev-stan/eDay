@@ -6,6 +6,8 @@ export const AuthorizedRoute = (props) => {
 
     const seller = getLoggedSeller();
 
+
+    console.log(props);
     if (seller) {
         return <props.component {...props} />
     }

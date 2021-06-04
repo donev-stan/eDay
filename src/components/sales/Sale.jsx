@@ -6,9 +6,13 @@ import Carousel from "react-bootstrap/Carousel";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 import ListGroup from "react-bootstrap/ListGroup";
-import { getSaleByID } from "../../core/services/SaleService";
+import Badge from "react-bootstrap/Badge";
+import { deleteSale, getSaleByID } from "../../core/services/SaleService";
 import { getSellerByID } from "../../core/services/SellerService";
 import { getLoggedSeller } from "../../core/services/AuthService";
+import { itemCondition } from "../../core/services/SaleService";
+import { Link, Redirect } from "react-router-dom";
+
 // import { SaleImage } from "./SaleImage";
 
 export const Sale = (props) => {
@@ -28,6 +32,7 @@ export const Sale = (props) => {
   });
   const [seller, setSeller] = useState({});
   const [isSeller, setIsSeller] = useState(false);
+  const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
     getSaleByID(props.computedMatch.params.id)
@@ -46,101 +51,128 @@ export const Sale = (props) => {
       });
   }, [props.computedMatch.params.id, sale.creatorID]);
 
+  // Badge Condition Color
+  let badgeConditionColor = "";
+  switch (sale.condition) {
+    case itemCondition.New:
+      badgeConditionColor = "success";
+      break;
+
+    case itemCondition.Used:
+      badgeConditionColor = "warning";
+      break;
+
+    case itemCondition.Damaged:
+      badgeConditionColor = "danger";
+      break;
+
+    default:
+      badgeConditionColor = "dark";
+      break;
+  }
+
+  const onSaleDelete = (saleID) => {
+    deleteSale(saleID).then((_) => {
+      setRedirect(true);
+    });
+  };
+
   return (
-    <Container className="my-4" fluid>
-      <Row>
-        {/* Main content (sale item) */}
-        <Col lg="8">
-          {/* Sale Item Pictures */}
-          <Carousel fade className="pl-2 pr-2 mt-2" >
-            {/* {sale.pictures &&
-              sale.pictures.forEach((pictureLink) => (
-                // <SaleImage key={pictureLink} pictureLink={pictureLink} />
-                <Carousel.Item>
-                  {console.log(pictureLink)}
-                  <img className="d-block w-100" src={pictureLink} />
+    <>
+    { redirect && <Redirect to="/sales" /> }
+      <Container className="my-4" fluid>
+        <Row>
+          {/* Main content (sale item) */}
+          <Col lg="8">
+            {/* Sale Item Pictures */}
+            <Carousel fade className="pl-2 pr-2 mt-2">
+              {sale.pictures[0] && (
+                <Carousel.Item style={{ maxHeight: "600px" }}>
+                  <img className="d-block w-100" src={sale.pictures[0]} />
                 </Carousel.Item>
-              ))} */}
+              )}
 
-            {sale.pictures[0] && (
-              <Carousel.Item style={{maxHeight: '600px'}}>
-                <img className="d-block w-100" src={sale.pictures[0]}/>
-              </Carousel.Item>
-            )}
+              {sale.pictures[1] && (
+                <Carousel.Item style={{ maxHeight: "600px" }}>
+                  <img className="d-block w-100" src={sale.pictures[1]} />
+                </Carousel.Item>
+              )}
 
-            {sale.pictures[1] && (
-              <Carousel.Item style={{maxHeight: '600px'}}>
-                <img className="d-block w-100" src={sale.pictures[1]} />
-              </Carousel.Item>
-            )}
+              {sale.pictures[2] && (
+                <Carousel.Item style={{ maxHeight: "600px" }}>
+                  <img className="d-block w-100" src={sale.pictures[2]} />
+                </Carousel.Item>
+              )}
+            </Carousel>
 
-            {sale.pictures[2] && (
-              <Carousel.Item style={{maxHeight: '600px'}}>
-                <img className="d-block w-100" src={sale.pictures[2]} />
-              </Carousel.Item>
-            )}
-          </Carousel>
-
-          <Container className="mt-4">
-            <Row>
-              <Col sm={10}>
-                <h2>{sale.title}</h2>
-              </Col>
-              <Col sm={2} className="text-center mt-2">
-                <i>${sale.price}</i>
-              </Col>
-            </Row>
-            <h6>Created: {sale.createdDate}</h6>
-            <h6>Updated: {sale.lastUpdated}</h6>
-          </Container>
-
-          <Container className="mt-3">
-            <p>{sale.description}</p>
-          </Container>
-
-          {isSeller && (
-            <Container className="text-right">
+            <Container className="mt-4">
               <Row>
-                <Col>
-                  <Button variant="warning">Edit Sale</Button>{" "}
-                  <Button variant="danger">Delete Sale</Button>{" "}
+                <Col sm={10}>
+                  <h2>{sale.title}</h2>
+                </Col>
+                <Col sm={2} className="text-center mt-2">
+                  <i>${sale.price}</i>
                 </Col>
               </Row>
+              <h6>Created: {sale.createdDate}</h6>
+              <h6>Updated: {sale.lastUpdated}</h6>
+              Condition:{" "}
+              <Badge variant={badgeConditionColor}>{sale.condition}</Badge>
             </Container>
-          )}
-        </Col>
 
-        {/* Side content (seller info) */}
-        <Col className="text-center mt-2" lg="4">
-          <Container className="my-4">
-            {/* Seller Picture */}
-            <Image src={seller.picture} roundedCircle style={borderShadow} />
-            <Container className="mt-4 mb-4">
-              <h3>
-                {seller.firstName} {seller.lastName}
-              </h3>
-              <h5>{seller.phone}</h5>
+            <Container className="mt-3">
+              <p>{sale.description}</p>
             </Container>
-          </Container>
 
-          <Container className="mt-4">
-            <h6>Other items for sale:</h6>
-            <ListGroup className="pl-4 pr-4">
-              <ListGroup.Item>Cras justo odio</ListGroup.Item>
-              <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-              <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-              <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-              <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-            </ListGroup>
-          </Container>
-        </Col>
-      </Row>
-    </Container>
+            {isSeller && (
+              <Container className="text-right">
+                <Row>
+                  <Col>
+                    <Link to={`/sales/edit/${sale.id}`}>
+                      <Button variant="warning">Edit Sale</Button>{" "}
+                    </Link>
+
+                    <Link>
+                      <Button variant="danger" onClick={()=> onSaleDelete(sale.id)}>Delete Sale</Button>{" "}
+                    </Link>
+                  </Col>
+                </Row>
+              </Container>
+            )}
+          </Col>
+
+          {/* Side content (seller info) */}
+          <Col className="text-center mt-2" lg="4">
+            <Container className="my-4">
+              {/* Seller Picture */}
+              <Image src={seller.picture} roundedCircle style={borderShadow} />
+              <Container className="mt-4 mb-4">
+                <h3>
+                  {seller.firstName} {seller.lastName}
+                </h3>
+                <h5>{seller.phone}</h5>
+              </Container>
+            </Container>
+
+            <Container className="mt-4">
+              <h6>Other items for sale:</h6>
+              <ListGroup className="pl-4 pr-4">
+                <ListGroup.Item>Cras justo odio</ListGroup.Item>
+                <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+                <ListGroup.Item>Morbi leo risus</ListGroup.Item>
+                <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
+                <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+              </ListGroup>
+            </Container>
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 };
 
 const borderShadow = {
-  webkitBoxShadow: '3px 3px 5px 6px #ccc', 
-  mozBoxShadow:    '3px 3px 5px 6px #ccc',  
-  boxShadow:         '3px 3px 5px 6px #ccc'
-}
+  webkitBoxShadow: "3px 3px 5px 6px #ccc",
+  mozBoxShadow: "3px 3px 5px 6px #ccc",
+  boxShadow: "3px 3px 5px 6px #ccc",
+};
