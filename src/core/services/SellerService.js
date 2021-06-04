@@ -1,4 +1,5 @@
 import axios from "axios";
+import { register } from "./AuthService";
 
 const url = "http://localhost:3000";
 
@@ -19,4 +20,17 @@ export async function getAllSellers(searchParam) {
 
 export function getSellerByID(sellerID) {
   return axios.get(`${url}/sellers/${sellerID}`);
+}
+
+export function saveSeller(sellerData) {
+
+  if (sellerData.id) {
+    return axios.put(`${url}/sellers/${sellerData.id}`, sellerData);
+  }
+
+  return register(sellerData);
+}
+
+export function deleteSeller(seller) {
+
 }

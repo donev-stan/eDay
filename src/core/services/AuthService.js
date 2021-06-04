@@ -30,7 +30,7 @@ export async function register(userData) {
 
     userData = {
         ...userData,
-        picture: `https://robohash.org/set_set2/${userData.firstName}${userData.lastName}${Math.round(Math.random() * 10)}?size=300x300`,
+        picture: userData.picture ? userData.picture : `https://robohash.org/set_set2/${userData.firstName}${userData.lastName}${Math.round(Math.random() * 10)}?size=300x300`,
         badges: ['New'],
         createdDate: new Date()
     }

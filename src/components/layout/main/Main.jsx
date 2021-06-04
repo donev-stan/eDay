@@ -7,6 +7,7 @@ import { Register } from "../../auth/register/Register";
 import { AuthorizedRoute } from "../../../core/guards/AuthorizedRoute";
 import { Sales } from "../../sales/Sales";
 import { Sale } from "../../sales/Sale";
+import { SaleEdit } from "../../sales/SaleEdit";
 import { SellItem } from "../../sell/SellItem";
 
 export const Main = () => {
@@ -14,9 +15,11 @@ export const Main = () => {
     <Switch>
         <Route exact path="/sales" component={Sales} />
         <AuthorizedRoute exact path="/sales/:id" component={Sale}/>
+        <AuthorizedRoute exact path="/sales/edit/:id" component={SaleEdit}/>
         
         <Route exact path="/sellers" component={Sellers}/>
-        <AuthorizedRoute exact path="/seller/:id" component={Seller}/>
+        <AuthorizedRoute exact path="/sellers/:id" component={Seller}/>
+        <Route exact path="/sellers/edit/:id" component={Register}/>
         
         <AuthorizedRoute exact path="/sell" component={SellItem} />
 

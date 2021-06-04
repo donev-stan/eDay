@@ -22,7 +22,7 @@ export const SellerCard = ({seller}) => {
                 <ListGroupItem>Badges: <Badge variant="success">New</Badge>{' '}</ListGroupItem>
               </ListGroup>
               <Card.Body>
-                <Card.Link as={Link} to={`/seller/${seller.id}`}>View Profile</Card.Link>
+                <Card.Link as={Link} to={`/sellers/${seller.id}`}>View Profile</Card.Link>
               </Card.Body>
             </Card>
         </Col>

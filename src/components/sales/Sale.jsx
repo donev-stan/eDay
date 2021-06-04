@@ -107,10 +107,10 @@ export const Sale = (props) => {
 
         {/* Side content (seller info) */}
         <Col className="text-center" lg="4">
-          <Container>
+          <Container className="mb-4">
             {/* Seller Picture */}
             <Image src={seller.picture} roundedCircle />
-            <Container className="my-2">
+            <Container className="mt-2 mb-4">
               <h3>
                 {seller.firstName} {seller.lastName}
               </h3>
@@ -119,7 +119,7 @@ export const Sale = (props) => {
           </Container>
 
           <Container className="mt-4">
-            <h4>Other items for sale:</h4>
+            <h6>Other items for sale:</h6>
             <ListGroup>
               <ListGroup.Item>Cras justo odio</ListGroup.Item>
               <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>

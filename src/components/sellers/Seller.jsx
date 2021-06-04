@@ -15,7 +15,6 @@ export const Seller = (props) => {
   const [isSeller, setIsSeller] = useState(false);
 
   useEffect(() => {
-    
     if (props.computedMatch.params.id) {
       getSellerByID(props.computedMatch.params.id).then((response) => {
         setSeller(response.data);
@@ -64,7 +63,7 @@ export const Seller = (props) => {
             </Card.Footer>
           </Card>
           <Row className="text-center mt-2">
-            {isSeller ? (
+            {isSeller && (
               <>
                 <Col>
                   <Link to="/login">
@@ -74,25 +73,15 @@ export const Seller = (props) => {
                   </Link>
                 </Col>
                 <Col>
-                  <Button variant="warning">Edit</Button>
+                  <Link to={`/sellers/edit/${seller.id}`}>
+                    <Button variant="warning">Edit Profile</Button>
+                  </Link>
                 </Col>
                 <Col>
-                  <Button variant="danger">Delete</Button>
+                  <Button variant="danger">Delete Profile</Button>
                 </Col>
               </>
-            ) : (
-              <>
-                <Col>
-                  <Button variant="info">Upvote</Button>
-                </Col>
-                <Col>
-                  <Button variant="warning">Downvote</Button>
-                </Col>
-                <Col>
-                  <Button variant="danger">Report</Button>
-                </Col>
-              </>
-            )}
+            ) }
           </Row>
         </Col>
       </Row>
