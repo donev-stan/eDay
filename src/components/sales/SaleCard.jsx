@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export const SaleCard = ({ sale }) => {
   return (
     <Col className="my-2" md={6} lg={4}>
-      <Card style={{ width: "18rem" }}>
+      <Card style={borderShadow}>
         <Card.Img variant="top" src={sale.pictures[0]} />
         <Card.Body>
           <Card.Title>{sale.title}</Card.Title>
@@ -22,3 +22,9 @@ export const SaleCard = ({ sale }) => {
     </Col>
   );
 };
+
+const borderShadow = {
+  webkitBoxShadow: '2px 2px 3px 2px #ccc', 
+  mozBoxShadow:    '2px 2px 3px 2px #ccc',  
+  boxShadow:         '2px 2px 3px 2px #ccc'
+}
