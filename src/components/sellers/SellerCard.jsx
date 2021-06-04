@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 export const SellerCard = ({seller}) => {
     return (
         <Col lg={4}>
-            <Card className="my-3">
+            <Card className="my-3" style={borderShadow}>
               <Card.Img variant="top" src={seller.picture} />
               <Card.Body>
                 <Card.Title>{seller.firstName} {seller.lastName}</Card.Title>
@@ -18,7 +18,7 @@ export const SellerCard = ({seller}) => {
               <ListGroup className="list-group-flush">
                 <ListGroupItem>{seller.email}</ListGroupItem>
                 <ListGroupItem>{seller.phone}</ListGroupItem>
-                <ListGroupItem>Rating: {seller.rating}</ListGroupItem>
+                {/* <ListGroupItem>Rating: {seller.rating}</ListGroupItem> */}
                 <ListGroupItem>Badges: <Badge variant="success">New</Badge>{' '}</ListGroupItem>
               </ListGroup>
               <Card.Body>
@@ -27,4 +27,10 @@ export const SellerCard = ({seller}) => {
             </Card>
         </Col>
     )
+}
+
+const borderShadow = {
+  webkitBoxShadow: '2px 2px 3px 2px #ccc', 
+  mozBoxShadow:    '2px 2px 3px 2px #ccc',  
+  boxShadow:         '2px 2px 3px 2px #ccc'
 }

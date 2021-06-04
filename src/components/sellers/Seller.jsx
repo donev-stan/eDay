@@ -47,11 +47,11 @@ export const Seller = (props) => {
     <Container className="mt-4">
       <Row className="my-2">
         <Col lg={4} className="my-2 text-center">
-          <Image src={seller.picture} thumbnail alt="" />
+          <Image src={seller.picture} thumbnail alt="" style={borderShadow} />
         </Col>
         <Col lg={8} className="my-2">
           <Card className="text-center">
-            <Card.Header>{seller.phone}</Card.Header>
+            <Card.Header className="text-muted">{seller.phone}</Card.Header>
             <Card.Body>
               <Card.Title>
                 {seller.firstName} {seller.lastName}
@@ -59,7 +59,7 @@ export const Seller = (props) => {
               <Card.Text>{seller.bio}</Card.Text>
             </Card.Body>
             <Card.Footer className="text-muted">
-              {seller.createdDate}
+              {seller.email}
             </Card.Footer>
           </Card>
           <Row className="text-center mt-2">
@@ -93,3 +93,9 @@ export const Seller = (props) => {
     </Container>
   );
 };
+
+const borderShadow = {
+  webkitBoxShadow: '2px 2px 3px 2px #ccc', 
+  mozBoxShadow:    '2px 2px 3px 2px #ccc',  
+  boxShadow:         '2px 2px 3px 2px #ccc'
+}

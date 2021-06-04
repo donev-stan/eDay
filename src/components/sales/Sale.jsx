@@ -52,7 +52,7 @@ export const Sale = (props) => {
         {/* Main content (sale item) */}
         <Col lg="8">
           {/* Sale Item Pictures */}
-          <Carousel fade>
+          <Carousel fade className="pl-2 pr-2 mt-2" >
             {/* {sale.pictures &&
               sale.pictures.forEach((pictureLink) => (
                 // <SaleImage key={pictureLink} pictureLink={pictureLink} />
@@ -63,42 +63,47 @@ export const Sale = (props) => {
               ))} */}
 
             {sale.pictures[0] && (
-              <Carousel.Item>
-                <img className="d-block w-100" src={sale.pictures[0]} />
+              <Carousel.Item style={{maxHeight: '600px'}}>
+                <img className="d-block w-100" src={sale.pictures[0]}/>
               </Carousel.Item>
             )}
 
             {sale.pictures[1] && (
-              <Carousel.Item>
+              <Carousel.Item style={{maxHeight: '600px'}}>
                 <img className="d-block w-100" src={sale.pictures[1]} />
               </Carousel.Item>
             )}
 
             {sale.pictures[2] && (
-              <Carousel.Item>
+              <Carousel.Item style={{maxHeight: '600px'}}>
                 <img className="d-block w-100" src={sale.pictures[2]} />
               </Carousel.Item>
             )}
           </Carousel>
 
-          <Container className="mt-2">
-            <h2>{sale.title}</h2>
+          <Container className="mt-4">
+            <Row>
+              <Col sm={10}>
+                <h2>{sale.title}</h2>
+              </Col>
+              <Col sm={2} className="text-center mt-2">
+                <i>${sale.price}</i>
+              </Col>
+            </Row>
             <h6>Created: {sale.createdDate}</h6>
             <h6>Updated: {sale.lastUpdated}</h6>
           </Container>
 
-          <Container>
+          <Container className="mt-3">
             <p>{sale.description}</p>
           </Container>
 
           {isSeller && (
-            <Container>
+            <Container className="text-right">
               <Row>
                 <Col>
-                  <Button variant="warning">Edit</Button>{" "}
-                </Col>
-                <Col>
-                  <Button variant="danger">Delete</Button>{" "}
+                  <Button variant="warning">Edit Sale</Button>{" "}
+                  <Button variant="danger">Delete Sale</Button>{" "}
                 </Col>
               </Row>
             </Container>
@@ -106,11 +111,11 @@ export const Sale = (props) => {
         </Col>
 
         {/* Side content (seller info) */}
-        <Col className="text-center" lg="4">
-          <Container className="mb-4">
+        <Col className="text-center mt-2" lg="4">
+          <Container className="my-4">
             {/* Seller Picture */}
-            <Image src={seller.picture} roundedCircle />
-            <Container className="mt-2 mb-4">
+            <Image src={seller.picture} roundedCircle style={borderShadow} />
+            <Container className="mt-4 mb-4">
               <h3>
                 {seller.firstName} {seller.lastName}
               </h3>
@@ -120,7 +125,7 @@ export const Sale = (props) => {
 
           <Container className="mt-4">
             <h6>Other items for sale:</h6>
-            <ListGroup>
+            <ListGroup className="pl-4 pr-4">
               <ListGroup.Item>Cras justo odio</ListGroup.Item>
               <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
               <ListGroup.Item>Morbi leo risus</ListGroup.Item>
@@ -133,3 +138,9 @@ export const Sale = (props) => {
     </Container>
   );
 };
+
+const borderShadow = {
+  webkitBoxShadow: '3px 3px 5px 6px #ccc', 
+  mozBoxShadow:    '3px 3px 5px 6px #ccc',  
+  boxShadow:         '3px 3px 5px 6px #ccc'
+}

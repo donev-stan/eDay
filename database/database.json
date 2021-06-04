@@ -7,10 +7,9 @@
       "lastName": "Kolev",
       "email": "kolev@mail.com",
       "phone": "+1 (828) 541-3449",
-      "bio": "Ready to die but not to stop",
+      "bio": "Ready to die but not to stop...",
       "createdDate": "2021-05-21T06:11:51.870Z",
       "password": "password",
-      "rating": 0,
       "badges": [
         "Crook"
       ],
@@ -29,7 +28,6 @@
       "bio": "Foncho is smart ass.",
       "createdDate": "2021-05-21T06:11:51.870Z",
       "password": "password",
-      "rating": 0,
       "badges": [
         "new"
       ],
@@ -48,7 +46,6 @@
       "bio": "The little Garjo, also known as GAPI is little gypsy boy.",
       "createdDate": "2021-05-21T06:11:51.870Z",
       "password": "password",
-      "rating": 0,
       "badges": [
         "Trader"
       ],
@@ -67,7 +64,6 @@
       "bio": "Blabalablabla Bala bla ba la la bla",
       "createdDate": "2021-05-21T06:11:51.870Z",
       "password": "password",
-      "rating": 0,
       "badges": [
         "New"
       ],
@@ -83,7 +79,6 @@
       "phone": "0895955205",
       "bio": "asccccsadvsrnrgeafwegrdngfmhmgndfgefwegrngmhmfgndfgsdefawsdsafdbfgfasccccsadvsrnrgeafwegrdngfmhmgndfgefwegrngmhmfgndfgsdefawsdsafdbfgfasccccsadvsrnrgeafwegrdngfmhmgndfgefwegrngmhmfgndfgsdefawsdsafdbfgfasccccsadvsrnrgeafwegrdngfmhmgndfgefwegrngmhmfgndfgsdefawsdsafdbfgf",
       "password": "123",
-      "rating": 0,
       "address": {
         "city": "",
         "zip": ""
@@ -103,7 +98,6 @@
       "phone": "0895955205",
       "bio": "",
       "password": "123",
-      "rating": 0,
       "address": {
         "city": "",
         "zip": ""
@@ -140,7 +134,6 @@
       "phone": "0895955205",
       "bio": "ass",
       "password": "123",
-      "rating": 0,
       "address": {
         "city": "",
         "zip": ""
