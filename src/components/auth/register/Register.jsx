@@ -21,11 +21,11 @@ export const Register = (props) => {
     bio: "",
     password: "",
     rating: 0,
-    address: {
-      city: "",
-      zip: "",
-    },
-    redirect: false,
+    // address: {
+    //   city: "",
+    //   zip: "",
+    // },
+    redirect: false
   });
   const [redirectPath, setRedirectPath] = useState("/sales");
   const [error, setError] = useState(false);
@@ -45,7 +45,7 @@ export const Register = (props) => {
 
     setUserData((prevState) => ({
       ...prevState,
-      [event.target.name]: event.target.value.trim(),
+      [event.target.name]: event.target.value,
     }));
   };
 

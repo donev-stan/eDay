@@ -7,7 +7,7 @@
       "lastName": "Kolev",
       "email": "kolev@mail.com",
       "phone": "+1 (828) 541-3449",
-      "bio": "Ready to die but not to stop...",
+      "bio": "Ready to die but not to stop.",
       "createdDate": "2021-05-21T06:11:51.870Z",
       "password": "password",
       "badges": [
@@ -16,7 +16,9 @@
       "address": {
         "city": "Burgas",
         "zip": "6740"
-      }
+      },
+      "city": "nova zagora",
+      "zip": "0895"
     },
     {
       "id": 2,
@@ -282,6 +284,20 @@
       ],
       "lastUpdated": "2021-06-04T14:42:28.350Z",
       "id": 11
+    },
+    {
+      "title": "Testa",
+      "description": "asdas",
+      "price": "123",
+      "condition": "New",
+      "creatorID": 1,
+      "pictures": [
+        null,
+        null,
+        null
+      ],
+      "lastUpdated": "2021-06-04T15:53:51.334Z",
+      "id": 12
     }
   ]
 }

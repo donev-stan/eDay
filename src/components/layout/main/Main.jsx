@@ -8,6 +8,7 @@ import { AuthorizedRoute } from "../../../core/guards/AuthorizedRoute";
 import { Sales } from "../../sales/Sales";
 import { Sale } from "../../sales/Sale";
 import { SellItem } from "../../sell/SellItem";
+import { Home } from "../../home/Home";
 
 export const Main = () => {
   return (
@@ -26,6 +27,8 @@ export const Main = () => {
 
         <Route exact path="/login" component={Login}/>
         <Route exact path="/register" component={Register}/>
+
+        <Route exact path="/" component={Home} />
     </Switch>
   );
 };
