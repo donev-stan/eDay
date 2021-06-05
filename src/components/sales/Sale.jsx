@@ -7,6 +7,7 @@ import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 import ListGroup from "react-bootstrap/ListGroup";
 import Badge from "react-bootstrap/Badge";
+import { getSalesBySellerID, returnReadableDate } from "../../core/services/SaleService";
 import { deleteSale, getSaleByID } from "../../core/services/SaleService";
 import { getSellerByID } from "../../core/services/SellerService";
 import { getLoggedSeller } from "../../core/services/AuthService";
@@ -33,10 +34,13 @@ export const Sale = (props) => {
   const [seller, setSeller] = useState({});
   const [isSeller, setIsSeller] = useState(false);
   const [redirect, setRedirect] = useState(false);
+  const [sellerSales, setSellerSales] = useState([]);
 
   useEffect(() => {
     getSaleByID(props.computedMatch.params.id)
       .then((response) => {
+        response.data.createdDate = returnReadableDate(response.data.createdDate);
+        response.data.lastUpdated = returnReadableDate(response.data.lastUpdated);
         setSale(response.data);
       })
       .then((_) => {
@@ -48,6 +52,9 @@ export const Sale = (props) => {
             setIsSeller(true);
           }
         });
+      })
+      .then(async (_) => {
+        setSellerSales(await getSalesBySellerID(seller.id));
       });
   }, [props.computedMatch.params.id, sale.creatorID]);
 
@@ -89,22 +96,34 @@ export const Sale = (props) => {
           {/* Main content (sale item) */}
           <Col lg="8">
             {/* Sale Item Pictures */}
-            <Carousel fade className="pl-2 pr-2 mt-2">
+            <Carousel fade className="pl-2 pr-2 mt-2 text-center">
               {sale.pictures[0] && (
-                <Carousel.Item style={{ maxHeight: "1000px" }}>
-                  <img className="d-block w-100" src={sale.pictures[0]} />
+                <Carousel.Item style={{maxHeight: '75%', maxWidth: '75%'}}>
+                  <img
+                    className="d-block w-100"
+                    src={sale.pictures[0]}
+                    alt="Sale Item"
+                  />
                 </Carousel.Item>
               )}
 
               {sale.pictures[1] && (
-                <Carousel.Item style={{ maxHeight: "1000px" }}>
-                  <img className="d-block w-100" src={sale.pictures[1]} />
+                <Carousel.Item style={{maxHeight: '75%', maxWidth: '75%'}}>
+                  <img
+                    className="d-block w-100"
+                    src={sale.pictures[1]}
+                    alt="Sale Item"
+                  />
                 </Carousel.Item>
               )}
 
               {sale.pictures[2] && (
-                <Carousel.Item style={{ maxHeight: "1000px" }}>
-                  <img className="d-block w-100" src={sale.pictures[2]} />
+                <Carousel.Item style={{maxHeight: '75%', maxWidth: '75%'}}>
+                  <img
+                    className="d-block w-100"
+                    src={sale.pictures[2]}
+                    alt="Sale Item"
+                  />
                 </Carousel.Item>
               )}
             </Carousel>
@@ -167,11 +186,11 @@ export const Sale = (props) => {
             <Container className="mt-4">
               <h6>Other items for sale:</h6>
               <ListGroup className="pl-4 pr-4">
-                <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-                <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-                <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+                {console.log(sellerSales)}
+                {sellerSales &&
+                  sellerSales.map((sale) => (
+                    <ListGroup.Item>{sale}</ListGroup.Item>
+                  ))}
               </ListGroup>
             </Container>
           </Col>

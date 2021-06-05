@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { getSaleByID, saveItem } from "../../core/services/SaleService";
 import { Redirect } from "react-router";
+import { getLoggedSeller } from "../../core/services/AuthService";
 
 export const SellItem = (props) => {
   const [item, setItem] = useState({
@@ -21,6 +22,11 @@ export const SellItem = (props) => {
       getSaleByID(props.computedMatch.params.id).then((response) => {
         setRedirectPath(`/sales/${props.computedMatch.params.id}`);
         setItem(response.data);
+      }).then(async _ => {
+        const loggedSellerID = (await getLoggedSeller()).id;
+        if (loggedSellerID !== item.creatorID) {
+          setRedirect(true);
+        }
       });
     }
   }, [props.computedMatch.params.id]);
@@ -100,7 +106,6 @@ export const SellItem = (props) => {
           <Form.Group className="my-2">
             <Form.Label>Price:</Form.Label>
             <Form.Control
-              type="number"
               name="price"
               onChange={onInputChange}
               required

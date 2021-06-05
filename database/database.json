@@ -104,6 +104,24 @@
       ],
       "createdDate": "2021-06-05T01:28:09.270Z",
       "id": 6
+    },
+    {
+      "firstName": "Admin",
+      "lastName": "Tester",
+      "email": "admin@admin.com",
+      "phone": "+359 89593 7857",
+      "bio": "Admin user for testing purposes.",
+      "password": "admin",
+      "rating": 0,
+      "city": "Virtual City",
+      "zip": "0101",
+      "picture": "https://robohash.org/set_set5/AdminTester3?size=300x300",
+      "badges": [
+        "New",
+        "Pass: admin"
+      ],
+      "createdDate": "2021-06-05T02:39:27.478Z",
+      "id": 7
     }
   ],
   "sales": [
@@ -119,38 +137,83 @@
         "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/refurb-mbp13touchbar-space-gallery-2018_AV5?wid=1000&hei=1000&fmt=jpeg&qlt=95&.v=1534805006803"
       ],
       "createdDate": "2021-06-05T00:37:45.409Z",
-      "lastUpdated": "2021-06-05T00:37:45.409Z",
+      "lastUpdated": "2021-06-05T03:26:47.952Z",
       "id": 1
     },
     {
-      "title": "test",
-      "description": "ascasc",
-      "price": "1.596",
-      "condition": "Damaged",
-      "creatorID": 1,
       "pictures": [
-        "",
-        null,
-        null
+        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MUF82?wid=572&hei=572&fmt=jpeg&qlt=95&.v=1590526633000",
+        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MUF82_AV1?wid=572&hei=572&fmt=jpeg&qlt=95&.v=1590526631000",
+        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MUF82_AV2?wid=572&hei=572&fmt=jpeg&qlt=95&.v=1590526638000"
       ],
-      "createdDate": "2021-06-05T00:43:43.469Z",
-      "lastUpdated": "2021-06-05T02:04:46.030Z",
-      "id": 2
+      "title": "USB-C Digital AV Multiport Adapter",
+      "description": "\nThe USB-C Digital AV Multiport Adapter lets you connect your USB-C–enabled Mac or iPad to an HDMI display, while also connecting a standard USB device and a USB-C charging cable.\n\nThis adapter allows you to mirror your Mac or iPad display to your HDMI-enabled TV or display.",
+      "price": "75",
+      "condition": "New",
+      "creatorID": 1,
+      "createdDate": "2021-06-05T04:07:00.045Z",
+      "lastUpdated": "2021-06-05T04:07:00.045Z",
+      "id": 5
     },
     {
       "pictures": [
-        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/refurb-mbp13touchbar-space-gallery-2018_GEO_GB?wid=1000&hei=1000&fmt=jpeg&qlt=95&.v=1534803465646",
-        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/refurb-mbp13touchbar-space-gallery-2018_AV1?wid=1000&hei=1000&fmt=jpeg&qlt=95&.v=1534804944589",
-        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/refurb-mbp13touchbar-space-gallery-2018_AV5?wid=1000&hei=1000&fmt=jpeg&qlt=95&.v=1534805006803"
+        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-12-pro-max-blue-hero?wid=940&hei=1112&fmt=png-alpha&.v=1604021658000",
+        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-12-pro-max-family-hero-all?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1604021663000",
+        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-12-pro-family-hero?wid=940&amp;hei=1112&amp;fmt=jpeg&amp;qlt=80&amp;.v=1604021663000"
       ],
-      "title": "Macbook",
-      "description": "For apple fanboys ",
-      "price": "1,359.00",
+      "title": "iPhone 12 Pro Max",
+      "description": "256GB.\nPlastic Blue",
+      "price": "1,199.00",
       "condition": "New",
-      "creatorID": 2,
-      "createdDate": "2021-06-05T01:48:41.221Z",
-      "lastUpdated": "2021-06-05T01:49:07.891Z",
-      "id": 3
+      "creatorID": 1,
+      "createdDate": "2021-06-05T04:27:22.160Z",
+      "lastUpdated": "2021-06-05T04:27:22.160Z",
+      "id": 6
+    },
+    {
+      "pictures": [
+        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MJX03ref_VW_34FR+watch-40-alum-silver-nc-6s_VW_34FR_WF_CO_GEO_GB+watch-face-40-6s-pride_VW_34FR_WF_CO?wid=700&hei=700&trim=1,0&fmt=p-jpg&qlt=95&.v=1619841295000,1601921983000,1620834614000",
+        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MJX03ref_VW_PF+watch-40-alum-silver-nc-6s_VW_PF_WF_CO_GEO_GB+watch-face-40-6s-pride_VW_PF_WF_CO?wid=700&hei=700&trim=1,0&fmt=p-jpg&qlt=95&.v=1619841276000,1601921987000,1620832649000",
+        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MJX03ref?wid=700&hei=700&trim=1,0&fmt=p-jpg&qlt=95&.v=1620363800000"
+      ],
+      "title": "Apple Watch Series 6",
+      "description": "The aluminium case is lightweight and made from 100 per cent recycled aerospace-grade alloy.\n\nThe Braided Solo Loop is made from recycled yarn interwoven with silicone threads for an ultra-comfortable, stretchable design with no clasps or buckles.",
+      "price": "399",
+      "condition": "Refurbished",
+      "creatorID": 7,
+      "createdDate": "2021-06-05T04:39:52.548Z",
+      "lastUpdated": "2021-06-05T04:39:52.548Z",
+      "id": 7
+    },
+    {
+      "pictures": [
+        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MY7F2ref_VW_34FR+watch-40-alum-red-nc-6s_VW_34FR_WF_CO_GEO_GB?wid=700&hei=700&trim=1,0&fmt=p-jpg&qlt=95&.v=1611115533000,1601921780000",
+        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MY7F2ref_VW_PF+watch-40-alum-red-nc-6s_VW_PF_WF_CO_GEO_GB?wid=700&hei=700&trim=1,0&fmt=p-jpg&qlt=95&.v=1611115502000,1601921784000",
+        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MY7F2ref?wid=700&hei=700&trim=1,0&fmt=p-jpg&qlt=95&.v=1611115507000"
+      ],
+      "title": "Apple Watch Series 6 (PRODUCT)RED",
+      "description": "The aluminium case is lightweight and made from 100 per cent recycled aerospace-grade alloy.\n\nThe Braided Solo Loop is made from recycled yarn interwoven with silicone threads for an ultra-comfortable, stretchable design with no clasps or buckles.",
+      "price": "299",
+      "condition": "Used",
+      "creatorID": 7,
+      "createdDate": "2021-06-05T04:42:55.682Z",
+      "lastUpdated": "2021-06-05T04:42:55.682Z",
+      "id": 8
+    },
+    {
+      "pictures": [
+        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/airpods-max-select-spacegray-202011?wid=470&hei=556&fmt=png-alpha&.v=1604709508000",
+        null,
+        null
+      ],
+      "title": "AirPods Max",
+      "description": "Space Gray",
+      "price": "249.00",
+      "condition": "Damaged",
+      "creatorID": 7,
+      "createdDate": "2021-06-05T05:06:21.138Z",
+      "lastUpdated": "2021-06-05T05:09:28.507Z",
+      "id": 9
     }
   ]
 }

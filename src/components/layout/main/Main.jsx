@@ -8,7 +8,6 @@ import { AuthorizedRoute } from "../../../core/guards/AuthorizedRoute";
 import { Sales } from "../../sales/Sales";
 import { Sale } from "../../sales/Sale";
 import { SellItem } from "../../sell/SellItem";
-import { Home } from "../../home/Home";
 
 export const Main = () => {
 

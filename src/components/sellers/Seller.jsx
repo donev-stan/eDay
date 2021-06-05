@@ -6,10 +6,10 @@ import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-// import Badge from "react-bootstrap/Badge";
 import { getLoggedSeller, logout } from "../../core/services/AuthService";
 import { Link } from "react-router-dom";
 import { getSalesBySellerID } from "../../core/services/SaleService";
+import { SaleCard } from "../sales/SaleCard";
 
 export const Seller = (props) => {
   const [seller, setSeller] = useState({});
@@ -18,33 +18,29 @@ export const Seller = (props) => {
 
   useEffect(() => {
     if (props.computedMatch.params.id) {
-      getSellerByID(props.computedMatch.params.id).then((response) => {
-        setSeller(response.data);
-      });
+      getSellerByID(props.computedMatch.params.id)
+        .then((response) => {
+          setSeller(response.data);
+        })
+        .then(async (_) => {
+          setSellerSales(await getSalesBySellerID(seller.id));
+        });
     } else {
       setIsSeller(true);
       const loggedSeller = getLoggedSeller();
       setSeller(loggedSeller);
+
+      (async () => {
+        setSellerSales(await getSalesBySellerID(seller.id));
+      })();
     }
-    getSales();
-  }, [props.computedMatch.params.id]);
-
-  const getSales = () => {
-    getSalesBySellerID(seller.id).then(response => {
-      console.log(response);
-    });
-  }
-
-  // const getSales = async () => {
-  //   const sales = await getSalesBySellerID(seller.id);
-  //   console.log(sales);
-  // }
+  }, [props.computedMatch.params.id, seller.id]);
 
   const userLogout = (e) => logout();
 
   return (
     <Container className="mt-4">
-      <Row className="my-2">
+      <Row className="my-4">
         <Col lg={4} className="my-2 text-center">
           <Image src={seller.picture} thumbnail alt="" style={borderShadow} />
         </Col>
@@ -57,11 +53,9 @@ export const Seller = (props) => {
               </Card.Title>
               <Card.Text>{seller.bio}</Card.Text>
             </Card.Body>
-            <Card.Footer className="text-muted">
-              {seller.email}
-            </Card.Footer>
+            <Card.Footer className="text-muted">{seller.email}</Card.Footer>
           </Card>
-          <Row className="text-center mt-2">
+          <Row className="text-center mt-3">
             {isSeller && (
               <>
                 <Col>
@@ -80,7 +74,7 @@ export const Seller = (props) => {
                   <Button variant="danger">Delete Profile</Button>
                 </Col>
               </>
-            ) }
+            )}
           </Row>
         </Col>
       </Row>
@@ -88,15 +82,16 @@ export const Seller = (props) => {
         <h3>{seller.name} Currently For Sale: </h3>
       </Row>
 
-      <Row>
-            {}
+      <Row className="mb-4">
+        {sellerSales &&
+          sellerSales.map((sale) => <SaleCard key={sale.id} sale={sale} />)}
       </Row>
     </Container>
   );
 };
 
 const borderShadow = {
-  webkitBoxShadow: '2px 2px 3px 2px #ccc', 
-  mozBoxShadow:    '2px 2px 3px 2px #ccc',  
-  boxShadow:         '2px 2px 3px 2px #ccc'
-}
+  WebkitBoxShadow: "2px 2px 3px 2px #ccc",
+  MozBoxShadow: "2px 2px 3px 2px #ccc",
+  boxShadow: "2px 2px 3px 2px #ccc",
+};

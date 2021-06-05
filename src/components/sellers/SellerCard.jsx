@@ -19,7 +19,7 @@ export const SellerCard = ({seller}) => {
                 <ListGroupItem>{seller.email}</ListGroupItem>
                 <ListGroupItem>{seller.phone}</ListGroupItem>
                 {/* <ListGroupItem>Rating: {seller.rating}</ListGroupItem> */}
-                <ListGroupItem>Badges: {seller.badges.map(badge => (<Badge variant="success">{badge}</Badge>))}</ListGroupItem>
+                <ListGroupItem>Badges: {seller.badges.map(badge => (<Badge variant="success" className="mr-1">{badge}</Badge>))}</ListGroupItem>
               </ListGroup>
               <Card.Body>
                 <Card.Link as={Link} to={`/sellers/${seller.id}`}>View Profile</Card.Link>

@@ -34,10 +34,11 @@ const Header = withRouter((props) => {
         <img
           alt=""
           // src="./logo-bag.png"
-          src="https://image.flaticon.com/icons/png/512/2984/2984530.png"
+          // src="https://image.flaticon.com/icons/png/512/2984/2984530.png"
+          src="https://image.flaticon.com/icons/png/512/4862/4862541.png"
           width="52"
           height="52"
-          className="d-inline-block align-center ml-2 mr-2"
+          className="d-inline-block align-center ml-3 mr-2"
         />{" "}
         eDay
       </Navbar.Brand>
@@ -65,8 +66,11 @@ const Header = withRouter((props) => {
             Search
           </Button>
         </Form>
-        <Nav.Link className="text-warning" as={Link} to="/profile">
-          Profile
+
+        <Nav.Link as={Link} to="/profile">
+          <Button variant="outline-light" size="sm">
+            Profile
+          </Button>{" "}
         </Nav.Link>
       </Navbar.Collapse>
     </Navbar>

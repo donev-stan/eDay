@@ -2,7 +2,6 @@ import React from "react";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
-import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { itemCondition } from "../../core/services/SaleService";
 
@@ -31,15 +30,15 @@ export const SaleCard = ({ sale }) => {
   }
 
   return (
-    <Col className="my-2" md={6} lg={4}>
+    <Col className="my-2 text-center" md={6} lg={4}>
 
       <Card style={borderShadow}>
         <Link to={`/sales/${sale.id}`} style={{textDecoration: 'none'}}>
 
-        <Card.Img variant="top" src={sale.pictures[0]} style={{maxHeight: '450px'}} />
+        <Card.Img variant="top" src={sale.pictures[0]} style={{maxHeight: '500px'}} />
         <Card.Body className="text-dark">
           <Card.Title>{sale.title}</Card.Title>
-          <Card.Text>Price: ${sale.price}</Card.Text>
+          <Card.Text>${sale.price}</Card.Text>
           {/* <Card.Text>{sale.description}</Card.Text> */}
           <Card.Text>
             <Badge variant={badgeConditionColor}>{sale.condition}</Badge>
