@@ -58,6 +58,10 @@ export const Sale = (props) => {
       badgeConditionColor = "success";
       break;
 
+    case itemCondition.Refurbished:
+      badgeConditionColor = "info";
+      break;
+
     case itemCondition.Used:
       badgeConditionColor = "warning";
       break;
@@ -79,7 +83,7 @@ export const Sale = (props) => {
 
   return (
     <>
-    { redirect && <Redirect to="/sales" /> }
+      {redirect && <Redirect to="/sales" />}
       <Container className="my-4" fluid>
         <Row>
           {/* Main content (sale item) */}
@@ -87,19 +91,19 @@ export const Sale = (props) => {
             {/* Sale Item Pictures */}
             <Carousel fade className="pl-2 pr-2 mt-2">
               {sale.pictures[0] && (
-                <Carousel.Item style={{ maxHeight: "600px" }}>
+                <Carousel.Item style={{ maxHeight: "1000px" }}>
                   <img className="d-block w-100" src={sale.pictures[0]} />
                 </Carousel.Item>
               )}
 
               {sale.pictures[1] && (
-                <Carousel.Item style={{ maxHeight: "600px" }}>
+                <Carousel.Item style={{ maxHeight: "1000px" }}>
                   <img className="d-block w-100" src={sale.pictures[1]} />
                 </Carousel.Item>
               )}
 
               {sale.pictures[2] && (
-                <Carousel.Item style={{ maxHeight: "600px" }}>
+                <Carousel.Item style={{ maxHeight: "1000px" }}>
                   <img className="d-block w-100" src={sale.pictures[2]} />
                 </Carousel.Item>
               )}
@@ -133,7 +137,12 @@ export const Sale = (props) => {
                     </Link>
 
                     <Link>
-                      <Button variant="danger" onClick={()=> onSaleDelete(sale.id)}>Delete Sale</Button>{" "}
+                      <Button
+                        variant="danger"
+                        onClick={() => onSaleDelete(sale.id)}
+                      >
+                        Delete Sale
+                      </Button>{" "}
                     </Link>
                   </Col>
                 </Row>
@@ -151,6 +160,7 @@ export const Sale = (props) => {
                   {seller.firstName} {seller.lastName}
                 </h3>
                 <h5>{seller.phone}</h5>
+                <h6>{seller.email}</h6>
               </Container>
             </Container>
 
@@ -172,7 +182,7 @@ export const Sale = (props) => {
 };
 
 const borderShadow = {
-  webkitBoxShadow: "3px 3px 5px 6px #ccc",
-  mozBoxShadow: "3px 3px 5px 6px #ccc",
+  WebkitBoxShadow: "3px 3px 5px 6px #ccc",
+  MozBoxShadow: "3px 3px 5px 6px #ccc",
   boxShadow: "3px 3px 5px 6px #ccc",
 };

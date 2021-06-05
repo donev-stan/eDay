@@ -7,7 +7,7 @@ import { Redirect } from "react-router";
 
 export const SellItem = (props) => {
   const [item, setItem] = useState({
-    link1: "",
+    pictures: [],
     title: "",
     description: "",
     price: "",
@@ -30,7 +30,7 @@ export const SellItem = (props) => {
 
     setItem((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.value.trim(),
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -50,26 +50,27 @@ export const SellItem = (props) => {
         <Form onSubmit={onFormSubmit}>
           <Form.Group className="my-2">
             <Form.Label>Images:</Form.Label>
+            {console.log(item)}
             <Form.Control
               placeholder="Place image link"
               className="my-1"
               name="link1"
               onChange={onInputChange}
-              // value={item.pictures[0]}
+              value={item.pictures[0] && item.pictures[0]}
             />
             <Form.Control
               placeholder="Place image link"
               className="my-1"
               name="link2"
               onChange={onInputChange}
-              // value={item.pictures[1]}
+              value={item.pictures[1] && item.pictures[1]}
             />
             <Form.Control
               placeholder="Place image link"
               className="my-1"
               name="link3"
               onChange={onInputChange}
-              // value={item.pictures[2]}
+              value={item.pictures[2]}
             />
           </Form.Group>
 
@@ -99,6 +100,7 @@ export const SellItem = (props) => {
           <Form.Group className="my-2">
             <Form.Label>Price:</Form.Label>
             <Form.Control
+              type="number"
               name="price"
               onChange={onInputChange}
               required
@@ -108,16 +110,10 @@ export const SellItem = (props) => {
 
           <Form.Group className="my-2">
             <Form.Label>Condition:</Form.Label>
-            {/* <Form.Control
-              name="condition"
-              required
-              value={item.condition}
-              onChange={onInputChange}
-            /> */}
-      
             <select name="condition" className="form-control" onChange={onInputChange}>
               <option value={item.condition ? item.condition : 'Unknown'}>{item.condition ? item.condition : 'Choose Condition'}</option>
               <option value="New">New</option>
+              <option value="Refurbished">Refurbished</option>
               <option value="Used">Used</option>
               <option value="Damaged">Damaged</option>
             </select>

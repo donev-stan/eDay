@@ -9,10 +9,12 @@ import Button from "react-bootstrap/Button";
 // import Badge from "react-bootstrap/Badge";
 import { getLoggedSeller, logout } from "../../core/services/AuthService";
 import { Link } from "react-router-dom";
+import { getSalesBySellerID } from "../../core/services/SaleService";
 
 export const Seller = (props) => {
   const [seller, setSeller] = useState({});
   const [isSeller, setIsSeller] = useState(false);
+  const [sellerSales, setSellerSales] = useState([]);
 
   useEffect(() => {
     if (props.computedMatch.params.id) {
@@ -24,22 +26,19 @@ export const Seller = (props) => {
       const loggedSeller = getLoggedSeller();
       setSeller(loggedSeller);
     }
+    getSales();
   }, [props.computedMatch.params.id]);
 
-  // check if logged user is the seller
-  // useEffect(() => {
-  //   const loggedSeller = getLoggedSeller();
+  const getSales = () => {
+    getSalesBySellerID(seller.id).then(response => {
+      console.log(response);
+    });
+  }
 
-  //   if (!seller.id) {
-  //     setSeller(loggedSeller);
-  //     setIsSeller(true);
-  //     return;
-  //   }
-
-  //   if (loggedSeller.id === seller.id) {
-  //     setIsSeller(true);
-  //   }
-  // }, []);
+  // const getSales = async () => {
+  //   const sales = await getSalesBySellerID(seller.id);
+  //   console.log(sales);
+  // }
 
   const userLogout = (e) => logout();
 
@@ -89,7 +88,9 @@ export const Seller = (props) => {
         <h3>{seller.name} Currently For Sale: </h3>
       </Row>
 
-      <Row></Row>
+      <Row>
+            {}
+      </Row>
     </Container>
   );
 };

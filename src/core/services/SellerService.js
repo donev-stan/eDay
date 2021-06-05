@@ -25,6 +25,10 @@ export function getSellerByID(sellerID) {
 export function saveSeller(sellerData) {
 
   if (sellerData.id) {
+    sellerData = {
+      ...sellerData,
+      picture: sellerData.picture ? sellerData.picture : `https://robohash.org/set_set5/${sellerData.firstName}${sellerData.lastName}${Math.round(Math.random() * 10)}?size=300x300`
+    }
     return axios.put(`${url}/sellers/${sellerData.id}`, sellerData);
   }
 

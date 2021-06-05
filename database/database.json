@@ -1,303 +1,156 @@
 {
   "sellers": [
     {
-      "id": 1,
-      "picture": "https://robohash.org/set_set2/stoqn?size=300x300",
-      "firstName": "Stoqn",
-      "lastName": "Kolev",
-      "email": "kolev@mail.com",
-      "phone": "+1 (828) 541-3449",
-      "bio": "Ready to die but not to stop.",
-      "createdDate": "2021-05-21T06:11:51.870Z",
-      "password": "password",
-      "badges": [
-        "Crook"
-      ],
-      "address": {
-        "city": "Burgas",
-        "zip": "6740"
-      },
-      "city": "nova zagora",
-      "zip": "0895"
-    },
-    {
-      "id": 2,
-      "picture": "https://robohash.org/set_set2/foncho?size=300x300",
-      "firstName": "Foncho",
-      "lastName": "Tarikata",
-      "email": "foncho@mail.com",
-      "phone": "+1 (866) 549-3745",
-      "bio": "Foncho is smart ass.",
-      "createdDate": "2021-05-21T06:11:51.870Z",
-      "password": "password",
-      "badges": [
-        "new"
-      ],
-      "address": {
-        "city": "Sofiq",
-        "zip": "9550"
-      }
-    },
-    {
-      "id": 3,
-      "picture": "https://robohash.org/set_set2/garjo?size=300x300",
-      "firstName": "Malkiq",
-      "lastName": "Garjo",
-      "email": "garjo@gmail.com",
-      "phone": "+1 (932) 545-3934",
-      "bio": "The little Garjo, also known as GAPI is little gypsy boy.",
-      "createdDate": "2021-05-21T06:11:51.870Z",
-      "password": "password",
-      "badges": [
-        "Trader"
-      ],
-      "address": {
-        "city": "Burgas",
-        "zip": "6740"
-      }
-    },
-    {
-      "id": 4,
-      "picture": "https://robohash.org/set_set2/Raychev?size=300x300",
       "firstName": "Stanislav",
-      "lastName": "Raychev",
-      "email": "raychev@gmail.com",
-      "phone": "+1 (932) 545-3934",
-      "bio": "Blabalablabla Bala bla ba la la bla",
-      "createdDate": "2021-05-21T06:11:51.870Z",
-      "password": "password",
+      "lastName": "Donev",
+      "email": "email@mail.com",
+      "phone": "+359 89593 7856",
+      "bio": "Creator & tester",
+      "password": "123",
+      "rating": 0,
+      "city": "Nova Zagora",
+      "zip": "8900",
+      "picture": "https://robohash.org/set_set5/StanislavDonev9?size=300x300",
       "badges": [
         "New"
       ],
-      "address": {
-        "city": "Nova Zagora",
-        "zip": "8900"
-      }
+      "createdDate": "2021-06-05T00:17:08.183Z",
+      "id": 1
+    },
+    {
+      "firstName": "Michael",
+      "lastName": "Jackson",
+      "email": "jackson@mail.com",
+      "phone": "+359 89593 7856",
+      "bio": "Singer Artist",
+      "password": "123",
+      "rating": 0,
+      "picture": "https://robohash.org/set_set5/MichaelJackson1?size=300x300",
+      "badges": [
+        "New"
+      ],
+      "createdDate": "2021-06-05T00:53:22.800Z",
+      "id": 2,
+      "avatar": "/set_sete5"
+    },
+    {
+      "firstName": "Stanislav",
+      "lastName": "Donev",
+      "email": "test@gmail.com",
+      "phone": "+359 89593 7856",
+      "bio": "",
+      "password": "123",
+      "rating": 0,
+      "address.city": "Nova Zagora",
+      "address.zip": "8900",
+      "picture": "https://robohash.org/set_set5/StanislavDonev1?size=300x300",
+      "badges": [
+        "New"
+      ],
+      "createdDate": "2021-06-05T01:20:37.295Z",
+      "id": 3
+    },
+    {
+      "firstName": "Pochivka",
+      "lastName": "Ot Gosho",
+      "email": "gosho@mail.com",
+      "phone": "+359 89593 7856",
+      "bio": "Toi Moje da pochivka",
+      "password": "123",
+      "rating": 0,
+      "address[city]": "Burgas",
+      "address.zip": "4555",
+      "picture": "https://robohash.org/set_set5/PochivkaOt Gosho9?size=300x300",
+      "badges": [
+        "New"
+      ],
+      "createdDate": "2021-06-05T01:25:02.606Z",
+      "id": 4
     },
     {
       "firstName": "Stanislav",
       "lastName": "Donev",
       "email": "donev.stanislavv@gmail.com",
       "phone": "0895955205",
-      "bio": "asccccsadvsrnrgeafwegrdngfmhmgndfgefwegrngmhmfgndfgsdefawsdsafdbfgfasccccsadvsrnrgeafwegrdngfmhmgndfgefwegrngmhmfgndfgsdefawsdsafdbfgfasccccsadvsrnrgeafwegrdngfmhmgndfgefwegrngmhmfgndfgsdefawsdsafdbfgfasccccsadvsrnrgeafwegrdngfmhmgndfgefwegrngmhmfgndfgsdefawsdsafdbfgf",
+      "bio": "",
       "password": "123",
+      "rating": 0,
       "address": {
         "city": "",
         "zip": ""
       },
-      "city": "Nova Zagora",
-      "zip": "8900",
-      "picture": "https://robohash.org/set_set2/StanislavDonev9?size=300x300",
+      "": "Nova Zagora",
+      "address.zip": "8900",
+      "picture": "https://robohash.org/set_set5/StanislavDonev10?size=300x300",
       "badges": [
         "New"
       ],
+      "createdDate": "2021-06-05T01:26:38.671Z",
       "id": 5
     },
     {
       "firstName": "Stanislav",
       "lastName": "Donev",
-      "email": "donev@gmail.com",
+      "email": "donev.staniavv@gmail.com",
       "phone": "0895955205",
-      "bio": "",
+      "bio": "ascascasc",
       "password": "123",
-      "address": {
-        "city": "",
-        "zip": ""
-      },
-      "city": "Nova Zagora",
+      "rating": 0,
+      "city": "Nova",
       "zip": "8900",
-      "picture": "https://robohash.org/set_set2/StanislavDonev10?size=300x300",
+      "picture": "https://robohash.org/set_set5/StanislavDonev1?size=300x300",
       "badges": [
         "New"
       ],
-      "createdDate": "2021-06-03T21:29:03.615Z",
+      "createdDate": "2021-06-05T01:28:09.270Z",
       "id": 6
-    },
-    {
-      "firstName": "Stanislav",
-      "lastName": "Donev",
-      "city": "Nova Zagora",
-      "zip": "8900",
-      "phone": "0895955205",
-      "email": "donev.stanislavvvvv@gmail.com",
-      "password": "123",
-      "picture": "https://robohash.org/set_set2/StanislavDonev8?size=300x300",
-      "badges": [
-        "New"
-      ],
-      "createdDate": "2021-06-04T00:10:41.287Z",
-      "id": 7,
-      "bio": "asfqewwfqewf"
-    },
-    {
-      "firstName": "Stanislav",
-      "lastName": "Donev",
-      "email": "ddd@gmail.com",
-      "phone": "0895955205",
-      "bio": "ass",
-      "password": "123",
-      "address": {
-        "city": "",
-        "zip": ""
-      },
-      "city": "Nova Zagora",
-      "zip": "8900",
-      "picture": "https://robohash.org/set_set2/StanislavDonev5?size=300x300",
-      "badges": [
-        "New"
-      ],
-      "createdDate": "2021-06-04T00:16:19.794Z",
-      "id": 8
     }
   ],
   "sales": [
     {
-      "id": 1,
-      "title": "Achilles from Troy - Armor",
-      "description": "In Greek mythology, Achilles or Achilleus was a hero of the Trojan War. The new armour includes the Shield of Achilles, described in great detail in the poem.",
+      "title": "13.3-inch MacBook Pro",
+      "description": "Originally released May 2019\n\nTouch Bar with integrated Touch ID sensor\n\n13.3-inch (diagonal) LED-backlit display with IPS technology; 2560x1600 native resolution at 227 pixels per inch\n\n8GB of 2133MHz LPDDR3 onboard memory\n\n256GB SSD\n\n720p FaceTime HD camera\n\nIntel Iris Plus Graphics 655",
+      "price": "1,359.00",
+      "condition": "Refurbished",
       "creatorID": 1,
-      "createdDate": "2021-05-21T06:11:51.870Z",
-      "lastUpdated": "2021-05-21T06:11:51.870Z",
-      "condition": "Used. Like new",
-      "price": 5000,
-      "category": "weaponry",
       "pictures": [
-        "https://picsum.photos/1280/1080?random=1",
-        "https://picsum.photos/1280/1080?random=2",
-        "https://picsum.photos/1280/1080?random=3"
-      ]
+        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/refurb-mbp13touchbar-space-gallery-2018_GEO_GB?wid=1000&hei=1000&fmt=jpeg&qlt=95&.v=1534803465646",
+        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/refurb-mbp13touchbar-space-gallery-2018_AV1?wid=1000&hei=1000&fmt=jpeg&qlt=95&.v=1534804944589",
+        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/refurb-mbp13touchbar-space-gallery-2018_AV5?wid=1000&hei=1000&fmt=jpeg&qlt=95&.v=1534805006803"
+      ],
+      "createdDate": "2021-06-05T00:37:45.409Z",
+      "lastUpdated": "2021-06-05T00:37:45.409Z",
+      "id": 1
     },
     {
-      "id": 2,
-      "title": "Foncho's BMW",
-      "description": "Foncho is Tarikat momche.",
-      "creatorID": 2,
-      "createdDate": "2021-05-21T06:11:51.870Z",
-      "lastUpdated": "2021-05-21T06:11:51.870Z",
-      "category": "auto",
-      "condition": "Used",
-      "price": 3000,
-      "pictures": [
-        "https://picsum.photos/1280/1080?random=11",
-        "https://picsum.photos/1280/1080?random=22",
-        "https://picsum.photos/1280/1080?random=33"
-      ]
-    },
-    {
-      "id": 3,
-      "title": "Xbox One Controller",
-      "description": "Microsoft Controller for Xbox/PC.",
-      "creatorID": 3,
-      "createdDate": "2021-05-21T06:11:51.870Z",
-      "lastUpdated": "2021-05-21T06:11:51.870Z",
-      "category": "electronics",
-      "condition": "New",
-      "price": 100,
-      "pictures": [
-        "https://picsum.photos/1280/1080?random=111",
-        "https://picsum.photos/1280/1080?random=222",
-        "https://picsum.photos/1280/1080?random=333"
-      ]
-    },
-    {
-      "id": 4,
-      "title": "Honda NC700",
-      "description": "Used motorcycle for sale.",
-      "creatorID": 4,
-      "createdDate": "2021-05-21T06:11:51.870Z",
-      "lastUpdated": "2021-05-21T06:11:51.870Z",
-      "category": "auto",
-      "condition": "Battle Scared",
-      "price": 2500,
-      "pictures": [
-        "https://picsum.photos/1280/1080?random=1111",
-        "https://picsum.photos/1280/1080?random=2222",
-        "https://picsum.photos/1280/1080?random=3333"
-      ]
-    },
-    {
-      "title": "Porsche 911 Turbo S",
-      "price": "New",
+      "title": "test",
       "description": "ascasc",
-      "pictures": [
-        "https://upload.wikimedia.org/wikipedia/commons/7/7c/Porsche_992_Carrera_4S_Genf_2019_1Y7A5561.jpg",
-        "https://bigworldz.com/wp-content/uploads/2021/02/1x-1.jpg",
-        "https://www.cnet.com/a/img/L1A9pko2snbxnBV7wN-xRBjEvGI=/2020/03/25/02278586-d091-45f0-8c96-946f7113f1f6/ogi2-2021-porsche-911-turbo-s-010.jpg"
-      ],
-      "id": 5
-    },
-    {
-      "title": "Test Edit",
-      "description": "bbbbbbbbbbbbrrrrrrrrrrrrrrrrrr",
-      "price": "1010",
+      "price": "1.596",
+      "condition": "Damaged",
       "creatorID": 1,
       "pictures": [
-        null,
+        "",
         null,
         null
       ],
-      "createdDate": "2021-06-03T19:51:48.981Z",
-      "lastUpdated": "2021-06-04T13:21:51.060Z",
-      "id": 6,
-      "condition": "New"
+      "createdDate": "2021-06-05T00:43:43.469Z",
+      "lastUpdated": "2021-06-05T02:04:46.030Z",
+      "id": 2
     },
     {
-      "title": "Задание 8 домашна",
-      "description": "awaw",
-      "price": "12344",
-      "condition": "New",
-      "creatorID": 1,
       "pictures": [
-        null,
-        null,
-        null
+        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/refurb-mbp13touchbar-space-gallery-2018_GEO_GB?wid=1000&hei=1000&fmt=jpeg&qlt=95&.v=1534803465646",
+        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/refurb-mbp13touchbar-space-gallery-2018_AV1?wid=1000&hei=1000&fmt=jpeg&qlt=95&.v=1534804944589",
+        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/refurb-mbp13touchbar-space-gallery-2018_AV5?wid=1000&hei=1000&fmt=jpeg&qlt=95&.v=1534805006803"
       ],
-      "createdDate": "2021-06-03T20:06:17.738Z",
-      "lastUpdated": "2021-06-03T20:06:17.738Z",
-      "id": 7
-    },
-    {
-      "title": "Porsche 911 Turbo S",
-      "description": "asvav",
-      "price": "12344",
+      "title": "Macbook",
+      "description": "For apple fanboys ",
+      "price": "1,359.00",
       "condition": "New",
-      "creatorID": 6,
-      "pictures": [
-        "https://upload.wikimedia.org/wikipedia/commons/7/7c/Porsche_992_Carrera_4S_Genf_2019_1Y7A5561.jpg",
-        "https://picsum.photos/1920/1080?random=2",
-        null
-      ],
-      "createdDate": "2021-06-03T21:40:20.841Z",
-      "lastUpdated": "2021-06-03T21:40:20.841Z",
-      "id": 10
-    },
-    {
-      "title": "qipjqwdpihqwf",
-      "description": "WEFWef",
-      "price": "111",
-      "condition": "New",
-      "creatorID": 1,
-      "pictures": [
-        "https://upload.wikimedia.org/wikipedia/commons/7/7c/Porsche_992_Carrera_4S_Genf_2019_1Y7A5561.jpg",
-        "https://picsum.photos/1920/1080?random=2",
-        null
-      ],
-      "lastUpdated": "2021-06-04T14:42:28.350Z",
-      "id": 11
-    },
-    {
-      "title": "Testa",
-      "description": "asdas",
-      "price": "123",
-      "condition": "New",
-      "creatorID": 1,
-      "pictures": [
-        null,
-        null,
-        null
-      ],
-      "lastUpdated": "2021-06-04T15:53:51.334Z",
-      "id": 12
+      "creatorID": 2,
+      "createdDate": "2021-06-05T01:48:41.221Z",
+      "lastUpdated": "2021-06-05T01:49:07.891Z",
+      "id": 3
     }
   ]
 }

@@ -11,8 +11,10 @@ import { SellItem } from "../../sell/SellItem";
 import { Home } from "../../home/Home";
 
 export const Main = () => {
+
   return (
     <Switch>
+        <Route exact path="/" component={Sales} />
         <Route exact path="/sales" component={Sales} />
         <AuthorizedRoute exact path="/sales/:id" component={Sale}/>
         <AuthorizedRoute exact path="/sales/edit/:id" component={SellItem}/>
@@ -27,8 +29,6 @@ export const Main = () => {
 
         <Route exact path="/login" component={Login}/>
         <Route exact path="/register" component={Register}/>
-
-        <Route exact path="/" component={Home} />
     </Switch>
   );
 };

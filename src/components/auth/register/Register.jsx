@@ -25,7 +25,7 @@ export const Register = (props) => {
     //   city: "",
     //   zip: "",
     // },
-    redirect: false
+    redirect: false,
   });
   const [redirectPath, setRedirectPath] = useState("/sales");
   const [error, setError] = useState(false);
@@ -75,8 +75,36 @@ export const Register = (props) => {
             </Alert>
           )}
 
+          {/* Image */}
+          <Form.Group className="my-2">
+            <Form.Label>Image</Form.Label>
+            <Form.Control
+              placeholder="Place image link or leave blank for randomly generated avatar (takes while to load at first)"
+              className="my-1"
+              name="picture"
+              onChange={onInputChange}
+              value={userData.picture}
+            />
+          </Form.Group>
+          {/* <Form.Group className="my-2 mb-4">
+            <Form.Label>Avatar</Form.Label>
+            <select
+              name="avatar"
+              className="form-control"
+              onChange={onInputChange}
+            >
+              <option value="/">None. I used my own image!</option>
+              <option value="/set_set1">Robot</option>
+              <option value="/set_set2">Monster</option>
+              <option value="/set_set3">Robot Head</option>
+              <option value="/set_set4">Cat</option>
+              <option value="/set_sete5">Human (*Image Loads slower*. Humans take more time to compute)</option>
+            </select>
+          </Form.Group> */}
+
           {/* Name*/}
-          <Row className="mb-3">
+          <Row className="my-3">
+          {/* <Form.Label>Names</Form.Label> */}
             <Col>
               <Form.Control
                 placeholder="First name"
@@ -116,7 +144,7 @@ export const Register = (props) => {
                 placeholder="City"
                 name="city"
                 onChange={onInputChange}
-                // value={userData.address[city]}
+                value={userData.city}
               />
             </Col>
             <Col>
@@ -124,7 +152,7 @@ export const Register = (props) => {
                 placeholder="Zip"
                 name="zip"
                 onChange={onInputChange}
-                // value={userData.address.zip}
+                value={userData.zip}
               />
             </Col>
           </Row>

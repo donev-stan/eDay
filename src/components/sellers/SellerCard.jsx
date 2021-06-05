@@ -10,7 +10,7 @@ export const SellerCard = ({seller}) => {
     return (
         <Col lg={4}>
             <Card className="my-3" style={borderShadow}>
-              <Card.Img variant="top" src={seller.picture} />
+              <Card.Img variant="top" src={seller.picture} style={{maxHeight: '400px'}} />
               <Card.Body>
                 <Card.Title>{seller.firstName} {seller.lastName}</Card.Title>
                 <Card.Text>{seller.bio}</Card.Text>
@@ -19,7 +19,7 @@ export const SellerCard = ({seller}) => {
                 <ListGroupItem>{seller.email}</ListGroupItem>
                 <ListGroupItem>{seller.phone}</ListGroupItem>
                 {/* <ListGroupItem>Rating: {seller.rating}</ListGroupItem> */}
-                <ListGroupItem>Badges: <Badge variant="success">New</Badge>{' '}</ListGroupItem>
+                <ListGroupItem>Badges: {seller.badges.map(badge => (<Badge variant="success">{badge}</Badge>))}</ListGroupItem>
               </ListGroup>
               <Card.Body>
                 <Card.Link as={Link} to={`/sellers/${seller.id}`}>View Profile</Card.Link>
@@ -30,7 +30,7 @@ export const SellerCard = ({seller}) => {
 }
 
 const borderShadow = {
-  webkitBoxShadow: '2px 2px 3px 2px #ccc', 
-  mozBoxShadow:    '2px 2px 3px 2px #ccc',  
+  WebkitBoxShadow: '2px 2px 3px 2px #ccc', 
+  MozBoxShadow:    '2px 2px 3px 2px #ccc',  
   boxShadow:         '2px 2px 3px 2px #ccc'
 }
