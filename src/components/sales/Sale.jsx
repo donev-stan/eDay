@@ -34,7 +34,7 @@ export const Sale = (props) => {
   const [seller, setSeller] = useState({});
   const [isSeller, setIsSeller] = useState(false);
   const [redirect, setRedirect] = useState(false);
-  const [sellerSales, setSellerSales] = useState([]);
+  const [sellerSales, setSellerSales] = useState(null);
 
   useEffect(() => {
     getSaleByID(props.computedMatch.params.id)
@@ -53,10 +53,10 @@ export const Sale = (props) => {
           }
         });
       })
-      .then(async (_) => {
-        setSellerSales(await getSalesBySellerID(seller.id));
+      .then((_) => {
+        // setSellerSales(getSalesBySellerID(seller.id));
       });
-  }, [props.computedMatch.params.id, sale.creatorID]);
+  }, [props.computedMatch.params.id, sale.creatorID, seller.id]);
 
   // Badge Condition Color
   let badgeConditionColor = "";
@@ -184,9 +184,8 @@ export const Sale = (props) => {
             </Container>
 
             <Container className="mt-4">
-              <h6>Other items for sale:</h6>
+              {/* <h6>Other items for sale:</h6> */}
               <ListGroup className="pl-4 pr-4">
-                {console.log(sellerSales)}
                 {sellerSales &&
                   sellerSales.map((sale) => (
                     <ListGroup.Item>{sale}</ListGroup.Item>

@@ -108,9 +108,9 @@ export function returnReadableDate(unreadableDate) {
     case "12":
       month = "December";
       break;
+    default:
+      break;
   }
-
-  console.log(`${time} ${day} ${month} ${year}`);
 
   return `${time} ${day} ${month} ${year}`;
 }

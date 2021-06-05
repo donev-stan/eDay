@@ -1,5 +1,6 @@
 import axios from "axios";
-import { register } from "./AuthService";
+import { logout, register } from "./AuthService";
+import { deleteSale, getSalesBySellerID } from "./SaleService";
 
 const url = "http://localhost:3000";
 
@@ -48,4 +49,18 @@ export async function saveSeller(sellerData) {
   return register(sellerData);
 }
 
-export function deleteSeller(seller) {}
+export async function deleteSeller(sellerID) {
+
+  const sales = await getSalesBySellerID(sellerID);
+
+  const deleteRequests = [];
+  sales.forEach(sale => {
+    deleteRequests.push(deleteSale(sale.id));
+  });
+
+  await Promise.all(deleteRequests);
+
+  logout();
+
+  return axios.delete(`${url}/sellers/${sellerID}`);
+}

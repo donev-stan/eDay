@@ -4,7 +4,13 @@ import axios from 'axios';
 const url = "http://localhost:3000"
 
 export function getLoggedSeller() {
-    return JSON.parse(localStorage.getItem('loggedSeller'));
+    const loggedSeller = JSON.parse(localStorage.getItem('loggedSeller'));
+
+    if (!loggedSeller) {
+        return undefined;
+    }
+
+    return loggedSeller;
 }
 
 export async function login(sellerData) {
@@ -40,5 +46,5 @@ export async function register(userData) {
 }
 
 export function logout() {
-    localStorage.removeItem('loggedSeller');
+    return localStorage.removeItem('loggedSeller');
 }

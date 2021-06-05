@@ -32,20 +32,22 @@ export const Register = (props) => {
 
   useEffect(() => {
     if (props.match.params.id) {
-      getSellerByID(props.match.params.id).then((response) => {
-        setUserData(response.data);
-        // setRedirectPath(`/sellers/${props.match.params.id}`);
-        setRedirectPath(`/sellers`);
-      }).then(async _ => {
-         const loggedSellerID = (await getLoggedSeller()).id;
-         if(loggedSellerID !== userData.id) {
-           console.log(loggedSellerID, userData.id);
-           setRedirectPath('/sellers');
-           setRedirect(true);
-         }
-      });
+      getSellerByID(props.match.params.id)
+        .then((response) => {
+          setUserData(response.data);
+          // setRedirectPath(`/sellers/${props.match.params.id}`);
+          setRedirectPath(`/sellers`);
+        })
+        .then((_) => {
+          const loggedSeller = getLoggedSeller();
+
+          if (!loggedSeller || loggedSeller.id !== userData.id) {
+            setRedirectPath("/sellers");
+            setRedirect(true);
+          }
+        });
     }
-  }, [props.match.params.id]);
+  }, [props.match.params.id, userData.id]);
 
   const onInputChange = (event) => {
     event.persist();
@@ -57,7 +59,7 @@ export const Register = (props) => {
   };
 
   const onFormSubmit = (event) => {
-    event.preventDefault();   
+    event.preventDefault();
 
     saveSeller(userData)
       .then((_) => {
@@ -107,7 +109,7 @@ export const Register = (props) => {
 
           {/* Name*/}
           <Row className="my-3">
-          {/* <Form.Label>Names</Form.Label> */}
+            {/* <Form.Label>Names</Form.Label> */}
             <Col>
               <Form.Control
                 placeholder="First name"

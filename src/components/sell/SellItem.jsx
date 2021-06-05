@@ -19,17 +19,19 @@ export const SellItem = (props) => {
 
   useEffect(() => {
     if (props.computedMatch.params.id) {
-      getSaleByID(props.computedMatch.params.id).then((response) => {
-        setRedirectPath(`/sales/${props.computedMatch.params.id}`);
-        setItem(response.data);
-      }).then(async _ => {
-        const loggedSellerID = (await getLoggedSeller()).id;
-        if (loggedSellerID !== item.creatorID) {
-          setRedirect(true);
-        }
-      });
+      getSaleByID(props.computedMatch.params.id)
+        .then((response) => {
+          setRedirectPath(`/sales/${props.computedMatch.params.id}`);
+          setItem(response.data);
+        })
+        .then((_) => {
+          const loggedSeller = getLoggedSeller();
+          if (!loggedSeller || loggedSeller.id !== item.creatorID) {
+            setRedirect(true);
+          }
+        });
     }
-  }, [props.computedMatch.params.id]);
+  }, [props.computedMatch.params.id, item.creatorID]);
 
   const onInputChange = (e) => {
     e.persist();
@@ -115,8 +117,14 @@ export const SellItem = (props) => {
 
           <Form.Group className="my-2">
             <Form.Label>Condition:</Form.Label>
-            <select name="condition" className="form-control" onChange={onInputChange}>
-              <option value={item.condition ? item.condition : 'Unknown'}>{item.condition ? item.condition : 'Choose Condition'}</option>
+            <select
+              name="condition"
+              className="form-control"
+              onChange={onInputChange}
+            >
+              <option value={item.condition ? item.condition : "Unknown"}>
+                {item.condition ? item.condition : "Choose Condition"}
+              </option>
               <option value="New">New</option>
               <option value="Refurbished">Refurbished</option>
               <option value="Used">Used</option>
