@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
-import { login, register } from "../../../core/services/AuthService";
+import { getLoggedSeller, login } from "../../../core/services/AuthService";
 import { Redirect } from "react-router";
 import {
   saveSeller,
@@ -25,8 +25,8 @@ export const Register = (props) => {
     //   city: "",
     //   zip: "",
     // },
-    redirect: false,
   });
+  const [redirect, setRedirect] = useState(false);
   const [redirectPath, setRedirectPath] = useState("/sales");
   const [error, setError] = useState(false);
 
@@ -36,6 +36,13 @@ export const Register = (props) => {
         setUserData(response.data);
         // setRedirectPath(`/sellers/${props.match.params.id}`);
         setRedirectPath(`/sellers`);
+      }).then(async _ => {
+         const loggedSellerID = (await getLoggedSeller()).id;
+         if(loggedSellerID !== userData.id) {
+           console.log(loggedSellerID, userData.id);
+           setRedirectPath('/sellers');
+           setRedirect(true);
+         }
       });
     }
   }, [props.match.params.id]);
@@ -50,23 +57,19 @@ export const Register = (props) => {
   };
 
   const onFormSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault();   
 
-    const { redirect, ...userDataNeeded } = userData;
-
-    saveSeller(userDataNeeded)
+    saveSeller(userData)
       .then((_) => {
-        setUserData({
-          redirect: true,
-        });
-        login(userDataNeeded);
+        setRedirect(true);
+        login(userData);
       })
       .catch((error) => setError(error.message));
   };
 
   return (
     <>
-      {userData.redirect && <Redirect to={redirectPath} />}
+      {redirect && <Redirect to={redirectPath} />}
       <Container className="my-4">
         <Form onSubmit={onFormSubmit}>
           {error && (
