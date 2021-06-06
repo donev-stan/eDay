@@ -50,7 +50,7 @@ export const Login = () => {
 
         <Form onSubmit={onFormSubmit}>
           {/* Email */}
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3">
             <Form.Label>Email address</Form.Label>
             <Form.Control
               type="email"
@@ -62,7 +62,7 @@ export const Login = () => {
           </Form.Group>
 
           {/* Password */}
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Group className="mb-3">
             <Form.Label>Password</Form.Label>
             <Form.Control
               type="password"
@@ -84,7 +84,6 @@ export const Login = () => {
 
           <Form.Group
             className="my-4 text-center"
-            controlId="formBasicRegistration"
           >
             <Form.Label>Don't have an account yet?</Form.Label> <br />
             <Container
