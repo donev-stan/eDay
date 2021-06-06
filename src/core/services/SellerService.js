@@ -30,19 +30,25 @@ export async function saveSeller(sellerData) {
     const users = await getAllSellers();
 
     if (users.find((u) => u.email === sellerData.email && u.id !== sellerData.id)) {
-      throw new Error("Email already exists!");
+      throw new Error("This email address is already registered by another user!");
     } else if (users.find((u) => u.phone === sellerData.phone  && u.id !== sellerData.id)) {
-      throw new Error("User already registered with this phone number!");
+      throw new Error("This phone number is already registered by another user!");
     }
 
     sellerData = {
       ...sellerData,
+      address: {
+        city: sellerData.city,
+        zip: sellerData.zip
+      },
       picture: sellerData.picture
         ? sellerData.picture
         : `https://robohash.org/set_set5/${sellerData.firstName}${
             sellerData.lastName
           }${Math.round(Math.random() * 10)}?size=300x300`,
     };
+    delete sellerData.city;
+    delete sellerData.zip;
 
     return axios.put(`${url}/sellers/${sellerData.id}`, sellerData);
   }

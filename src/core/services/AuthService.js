@@ -30,17 +30,23 @@ export async function register(userData) {
     const users = await getAllSellers();
 
     if (users.find(u => u.email === userData.email)) {
-        throw new Error('Email already exists!');
+        throw new Error('User already registered with this email!');
     } else if (users.find(u => u.phone === userData.phone)) {
         throw new Error('User already registered with this phone number!');
     }
 
     userData = {
         ...userData,
+        address: {
+            city: userData.city,
+            zip: userData.zip
+          },
         picture: userData.picture ? userData.picture : `https://robohash.org/set_set5/${userData.firstName}${userData.lastName}${Math.round(Math.random() * 10)}?size=300x300`,
         badges: ['New'],
         createdDate: new Date()
     }
+    delete userData.city;
+    delete userData.zip;
 
     return axios.post(`${url}/sellers`, userData);
 }

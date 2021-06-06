@@ -5,14 +5,14 @@ import { AuthorizedRoute } from "../../../core/guards/AuthorizedRoute";
 import { Login } from "../../auth/login/Login";
 import { Register } from "../../auth/register/Register";
 
-import { Seller } from "../../sellers/Seller";
-import { Sellers } from "../../sellers/Sellers";
-
 import { Sale } from "../../sales/Sale";
 import { Sales } from "../../sales/Sales";
 import { SaleCreate } from '../../sales/SaleCreate';
 import { SaleEdit } from '../../sales/SaleEdit';
 
+import { Seller } from "../../sellers/Seller";
+import { Sellers } from "../../sellers/Sellers";
+import { SellerEdit } from '../../sellers/SellerEdit';
 
 export const Main = () => {
 
@@ -27,9 +27,8 @@ export const Main = () => {
 
         <Route exact path="/sellers" component={Sellers}/>
         <AuthorizedRoute exact path="/sellers/:id" component={Seller}/>
-        {/* <AuthorizedRoute exact path="/sellers/edit/:id" component={SellerEdit}/> */}
+        <AuthorizedRoute exact path="/sellers/edit/:id" component={SellerEdit}/>
 
-        <Route exact path="/sellers/edit/:id" component={Register}/>
 
         <AuthorizedRoute exact path="/profile" component={Seller} />
 

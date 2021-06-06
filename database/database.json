@@ -8,8 +8,10 @@
       "bio": "Creator & tester",
       "password": "123",
       "rating": 0,
-      "city": "Nova Zagora",
-      "zip": "8900",
+      "address": {
+        "city": "Nova Zagora",
+        "zip": "8900"
+      },
       "picture": "https://robohash.org/set_set5/StanislavDonev9?size=300x300",
       "badges": [
         "New"
@@ -22,11 +24,13 @@
       "lastName": "Tester",
       "email": "admin@admin.com",
       "phone": "+359 89593 7857",
-      "bio": "Admin user for testing purposes.",
+      "bio": "Admin user for testing purposes",
       "password": "admin",
       "rating": 0,
-      "city": "Virtual City",
-      "zip": "0101",
+      "address": {
+        "city": "Virtual City",
+        "zip": "0011"
+      },
       "picture": "https://robohash.org/set_set5/AdminTester3?size=300x300",
       "badges": [
         "New",
@@ -141,21 +145,6 @@
         "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/airpods-max-select-pink-202011?wid=470&hei=556&fmt=png-alpha&.v=1604022365000",
         "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/airpods-max-select-silver-202011?wid=470&hei=556&fmt=png-alpha&.v=1604021221000"
       ]
-    },
-    {
-      "title": "Test Place Item for sale",
-      "description": "ascansc ajsboaicoiashiqanvq wq-w9uqoehf qeufhwoehf",
-      "price": "999",
-      "condition": "New",
-      "creatorID": 7,
-      "pictures": [
-        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/refurb-mbp13touchbar-space-gallery-2018_GEO_GB?wid=1000&hei=1000&fmt=jpeg&qlt=95&.v=1534803465646",
-        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/airpods-max-select-pink-202011?wid=470&hei=556&fmt=png-alpha&.v=1604022365000",
-        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/airpods-max-select-silver-202011?wid=470&hei=556&fmt=png-alpha&.v=1604021221000"
-      ],
-      "createdDate": "2021-06-06T04:03:43.491Z",
-      "lastUpdated": "2021-06-06T04:04:07.177Z",
-      "id": 11
     }
   ]
 }
