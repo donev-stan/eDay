@@ -5,10 +5,11 @@ import Col from "react-bootstrap/Col";
 import Carousel from "react-bootstrap/Carousel";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
-// import ListGroup from "react-bootstrap/ListGroup";
+import ListGroup from "react-bootstrap/ListGroup";
 import Badge from "react-bootstrap/Badge";
 import {
   badgeColor,
+  getSalesBySellerID,
   // getSalesBySellerID,
   returnReadableDate,
 } from "../../core/services/SaleService";
@@ -22,7 +23,7 @@ export const Sale = (props) => {
   const [seller, setSeller] = useState({});
   const [isSellerOwner, setIsSellerOwner] = useState(false);
   const [redirect, setRedirect] = useState(false);
-  // const [sellerSales, setSellerSales] = useState(null);
+  const [sellerSales, setSellerSales] = useState([]);
 
   useEffect(() => {
     const loggedSeller = getLoggedSeller();
@@ -46,8 +47,13 @@ export const Sale = (props) => {
         setSeller(loggedSeller);
         setIsSellerOwner(true);
       }
+
+      // Get sales by this seller
+      getSalesBySellerID(seller.id).then((sales) => {
+        setSellerSales(sales);
+      });
     });
-  }, [props.computedMatch.params.id, saleItem.creatorID]);
+  }, [props.computedMatch.params.id, saleItem.creatorID, seller.id]);
 
   // Badge Condition Color
   let badgeConditionColor = badgeColor(saleItem.condition);
@@ -69,7 +75,7 @@ export const Sale = (props) => {
               <Carousel
                 variant="dark"
                 className="ml-4"
-                style={{ maxHeight: "70%", maxWidth: "75%" }}
+                style={{ maxHeight: "50%", maxWidth: "55%" }}
               >
                 {saleItem.pictures && saleItem.pictures[0] && (
                   <Carousel.Item>
@@ -140,7 +146,7 @@ export const Sale = (props) => {
             </Container>
 
             {isSellerOwner && (
-              <Container className="text-center">
+              <Container className="text-center mb-2">
                 <Row className="mb-2">
                   <Col>
                     <Link to={`/sales/edit/${saleItem.id}`}>
@@ -162,13 +168,22 @@ export const Sale = (props) => {
             )}
 
             <Container className="mt-4">
-              {/* <h6>Other items for sale:</h6> */}
-              {/* <ListGroup className="pl-4 pr-4">
+              {sellerSales && <h6 className="mt-4">Other items for sale:</h6>}
+              <ListGroup className="pl-4 pr-4">
                 {sellerSales &&
                   sellerSales.map((sale) => (
-                    <ListGroup.Item>{sale}</ListGroup.Item>
+                    <Link
+                      to={`/sales/${sale.id}`}
+                      style={{ textDecoration: "none" }}
+                    >
+                      {sale.id !== saleItem.id && (
+                        <ListGroup.Item key={sale.id}>
+                          {sale.title}
+                        </ListGroup.Item>
+                      )}
+                    </Link>
                   ))}
-              </ListGroup> */}
+              </ListGroup>
             </Container>
           </Col>
         </Row>
