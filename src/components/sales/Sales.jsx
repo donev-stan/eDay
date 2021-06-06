@@ -21,16 +21,19 @@ export const Sales = (props) => {
     });
   }, [props.location.search]);
 
-
-  console.log(sales);
   return (
-    <Container className="my-4 text-center" fluid style={{width: '80%'}}>
+    <Container className="my-4 text-center" fluid style={{ width: "80%" }}>
       <Row>
         {error ? (
           <>
             {" "}
             <Alert key={5} variant={"info"} className="text-center my-4 text">
-              Nothing to show you <br /> Try another searching criteria{" "}
+              <Alert.Heading>Hmm..</Alert.Heading>
+              <p>Seems like this page is empty.</p>
+              <hr />
+              <p className="mb-0">
+              If this came as a result of a search, try another search criteria
+              </p>
             </Alert>{" "}
           </>
         ) : (

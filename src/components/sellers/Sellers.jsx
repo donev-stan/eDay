@@ -27,8 +27,14 @@ export const Sellers = (props) => {
         {error ? (
           <>
             {" "}
-            <Alert key={5} variant={'info'} className="text-center my-4 text">
-             Nothing to show you <br/> Try another searching criteria{" "}
+            <Alert key={5} variant={"info"} className="text-center my-4 text">
+              <Alert.Heading>Hmm..</Alert.Heading>
+              <p>Seems like this page is empty.</p>
+              <hr />
+              <p className="mb-0">
+                If this came as a result of a search, try another search
+                criteria
+              </p>
             </Alert>{" "}
           </>
         ) : (

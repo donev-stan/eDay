@@ -34,7 +34,6 @@ export const Sale = (props) => {
           response.data.lastUpdated
         );
         setSaleItem(response.data);
-        console.log(response.data);
       })
       .then((_) => {
         // Get Sale Item Owner

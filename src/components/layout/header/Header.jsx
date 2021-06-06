@@ -32,8 +32,7 @@ const Header = withRouter((props) => {
       <Navbar.Brand>
         <img
           alt="eDay logo"
-          // src="https://image.flaticon.com/icons/png/512/2984/2984530.png"
-          src="https://image.flaticon.com/icons/png/512/4862/4862541.png"
+          src="https://image.flaticon.com/icons/png/512/2984/2984530.png"
           width="52"
           height="52"
           className="d-inline-block align-center ml-3 mr-2"

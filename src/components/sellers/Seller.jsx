@@ -7,7 +7,7 @@ import Image from "react-bootstrap/Image";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { getLoggedSeller, logout } from "../../core/services/AuthService";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getSalesBySellerID } from "../../core/services/SaleService";
 import { SaleCard } from "../sales/SaleCard";
 

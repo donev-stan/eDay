@@ -18,6 +18,8 @@ export const Main = () => {
 
   return (
     <Switch>
+        {/* Some routes are intensionaly left default so non registered users can access them */}
+
         <Route exact path="/" component={Sales} />
         <Route exact path="/sales" component={Sales} />
 
@@ -28,7 +30,6 @@ export const Main = () => {
         <Route exact path="/sellers" component={Sellers}/>
         <AuthorizedRoute exact path="/sellers/:id" component={Seller}/>
         <AuthorizedRoute exact path="/sellers/edit/:id" component={SellerEdit}/>
-
 
         <AuthorizedRoute exact path="/profile" component={Seller} />
 
