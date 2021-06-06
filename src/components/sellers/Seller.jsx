@@ -97,7 +97,7 @@ export const Seller = (props) => {
           </Col>
         </Row>
 
-        {sellerSales && (
+        {sellerSales && sellerSales.length !== 0 && (
           <Row className="mt-4">
             <h3>Offerings: </h3>
           </Row>

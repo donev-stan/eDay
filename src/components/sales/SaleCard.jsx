@@ -15,7 +15,7 @@ export const SaleCard = ({ sale }) => {
           <Card.Img
             variant="top"
             src={sale.pictures && sale.pictures[0]}
-            style={{ maxHeight: "500px" }}
+            style={{ maxHeight: "520px" }}
           />
           <Card.Body className="text-dark">
             <Card.Title>{sale.title}</Card.Title>

@@ -1,43 +1,60 @@
 {
   "sellers": [
     {
-      "firstName": "Stanislav",
-      "lastName": "Donev",
+      "firstName": "Apple",
+      "lastName": "Fanboy",
       "email": "email@mail.com",
       "phone": "+359 89593 7856",
-      "bio": "Creator & tester",
+      "bio": "Selling all Apple related stuff.",
       "password": "123",
       "rating": 0,
       "address": {
-        "city": "Nova Zagora",
-        "zip": "8900"
+        "city": "Sofia",
+        "zip": "5690"
       },
-      "picture": "https://robohash.org/set_set5/StanislavDonev9?size=300x300",
+      "picture": "https://robohash.org/set_set5/Apple12?size=300x300",
       "badges": [
-        "New"
+        "Trader"
       ],
       "createdDate": "2021-06-05T00:17:08.183Z",
       "id": 1
     },
     {
-      "firstName": "Admin",
-      "lastName": "Tester",
-      "email": "admin@admin.com",
+      "firstName": "Samsung",
+      "lastName": "Fanboy",
+      "email": "mail@mail.com",
       "phone": "+359 89593 7857",
-      "bio": "Admin user for testing purposes",
-      "password": "admin",
+      "bio": "Selling everything Samsung related.",
+      "password": "123",
       "rating": 0,
       "address": {
         "city": "Virtual City",
         "zip": "0011"
       },
-      "picture": "https://robohash.org/set_set5/AdminTester3?size=300x300",
+      "picture": "https://robohash.org/set_set5/Samsung3?size=300x300",
       "badges": [
-        "New",
-        "Pass: admin"
+        "Trader"
       ],
       "createdDate": "2021-06-05T02:39:27.478Z",
-      "id": 7
+      "id": 2
+    },
+    {
+      "email": "admin@admin.com",
+      "password": "admin",
+      "firstName": "Admin",
+      "lastName": "Admin",
+      "bio": "Admin for testing purposes.",
+      "phone": "+359 89593 7859",
+      "address": {
+        "city": "Admin City",
+        "zip": "0101"
+      },
+      "picture": "https://robohash.org/set_set5/AdminAdmin3030?size=300x300",
+      "badges": [
+        "Admin"
+      ],
+      "createdDate": "2021-06-06T08:14:16.820Z",
+      "id": 3
     }
   ],
   "sales": [
@@ -69,7 +86,7 @@
       "creatorID": 1,
       "createdDate": "2021-06-05T04:07:00.045Z",
       "lastUpdated": "2021-06-05T04:07:00.045Z",
-      "id": 5
+      "id": 2
     },
     {
       "pictures": [
@@ -84,7 +101,7 @@
       "creatorID": 1,
       "createdDate": "2021-06-05T04:27:22.160Z",
       "lastUpdated": "2021-06-05T04:27:22.160Z",
-      "id": 6
+      "id": 3
     },
     {
       "pictures": [
@@ -96,10 +113,10 @@
       "description": "The aluminium case is lightweight and made from 100 per cent recycled aerospace-grade alloy.\n\nThe Braided Solo Loop is made from recycled yarn interwoven with silicone threads for an ultra-comfortable, stretchable design with no clasps or buckles.",
       "price": "399",
       "condition": "Refurbished",
-      "creatorID": 7,
+      "creatorID": 1,
       "createdDate": "2021-06-05T04:39:52.548Z",
       "lastUpdated": "2021-06-05T04:39:52.548Z",
-      "id": 7
+      "id": 4
     },
     {
       "pictures": [
@@ -111,10 +128,10 @@
       "description": "The aluminium case is lightweight and made from 100 per cent recycled aerospace-grade alloy.\n\nThe Braided Solo Loop is made from recycled yarn interwoven with silicone threads for an ultra-comfortable, stretchable design with no clasps or buckles.",
       "price": "299",
       "condition": "Used",
-      "creatorID": 7,
+      "creatorID": 1,
       "createdDate": "2021-06-05T04:42:55.682Z",
       "lastUpdated": "2021-06-05T04:42:55.682Z",
-      "id": 8
+      "id": 5
     },
     {
       "pictures": [
@@ -126,10 +143,40 @@
       "description": "Space Gray",
       "price": "249.00",
       "condition": "Damaged",
-      "creatorID": 7,
+      "creatorID": 1,
       "createdDate": "2021-06-05T05:06:21.138Z",
       "lastUpdated": "2021-06-05T05:09:28.507Z",
-      "id": 9
+      "id": 6
+    },
+    {
+      "title": "SAMSUNG Galaxy S21 Ultra 5G",
+      "description": "Представяме Galaxy S21 Ultra 5G. Проектиран с уникална контурно изрязана камера, за да създаде революция във фотографията — вече можеш да заснемаш кинематографично 8K видео и да щракаш епични снимки, всичко наведнъж. И с най-бързия чипсет на Galaxy, най-здравото стъкло, 5G и батерия за целия ден, Ultra лесно оправдава името си.",
+      "price": "1879,99",
+      "creatorID": 2,
+      "pictures": [
+        "https://www.telenor.bg/sites/default/files/styles/device-full/public/silver-web1_22.png?itok=KNpSAUXE",
+        "https://www.telenor.bg/sites/default/files/styles/device-full/public/silver-web5_2.png?itok=NxQ9xWeq",
+        "https://www.telenor.bg/sites/default/files/styles/device-full/public/50994042_-_samsung_galaxy_s21_ultra_256gb_silver_1.png?itok=-gyTWaAk"
+      ],
+      "createdDate": "2021-06-06T07:50:17.151Z",
+      "lastUpdated": "2021-06-06T08:20:57.570Z",
+      "id": 7,
+      "condition": "New"
+    },
+    {
+      "title": "SAMSUNG Galaxy Z Flip 5G",
+      "description": "Пълен екран, който се побира идеално в джоба ти? – това е Samsung Galaxy Z Flip 5G. Уникално гъвкаво стъкло, издръжлив и различен от всичко, което си държал до сега. Изработен от Samsung Ultra-Thin Glass пристига, за да промени представите ти и за да те вдъхнови за едно епично зрително изживяване със своя гладък и плосък екран. Функционалният дизайн пристига при теб в мистично бронзово или мистично сиво, един елегантен избор.",
+      "condition": "Refurbished",
+      "price": "1,299.00",
+      "creatorID": 2,
+      "pictures": [
+        "https://www.telenor.bg/sites/default/files/styles/device-full/public/50994164_-_samsung_galaxy_z_flip_5g_256gb_grey_1.png?itok=fxhggovm",
+        "https://www.telenor.bg/sites/default/files/styles/device-full/public/grey-web3_22.png?itok=xepZxbfa",
+        "https://www.telenor.bg/sites/default/files/styles/device-full/public/grey-web4_13.png?itok=X2l0NjSv"
+      ],
+      "createdDate": "2021-06-06T07:56:26.519Z",
+      "lastUpdated": "2021-06-06T07:56:26.519Z",
+      "id": 8
     }
   ]
 }

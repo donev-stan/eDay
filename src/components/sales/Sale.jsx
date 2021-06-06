@@ -65,38 +65,44 @@ export const Sale = (props) => {
         <Row>
           {/* Main content (saleItem item) */}
           <Col lg="8">
-            <Carousel fade className="pl-2 pr-2 mt-2">
-              {saleItem.pictures && saleItem.pictures[0] && (
-                <Carousel.Item style={{ maxHeight: "75%", maxWidth: "75%" }}>
-                  <img
-                    className="d-block w-100"
-                    src={saleItem.pictures[0]}
-                    alt="Sale Item"
-                  />
-                </Carousel.Item>
-              )}
-              {saleItem.pictures && saleItem.pictures[1] && (
-                <Carousel.Item style={{ maxHeight: "75%", maxWidth: "75%" }}>
-                  <img
-                    className="d-block w-100"
-                    src={saleItem.pictures[1]}
-                    alt="Sale Item"
-                  />
-                </Carousel.Item>
-              )}
-
-              {saleItem.pictures &&
-                saleItem.pictures[2] &&
-                saleItem.pictures[2] && (
-                  <Carousel.Item style={{ maxHeight: "75%", maxWidth: "75%" }}>
+            <Container>
+              <Carousel
+                variant="dark"
+                className="ml-4"
+                style={{ maxHeight: "70%", maxWidth: "75%" }}
+              >
+                {saleItem.pictures && saleItem.pictures[0] && (
+                  <Carousel.Item>
                     <img
                       className="d-block w-100"
-                      src={saleItem.pictures[2]}
+                      src={saleItem.pictures[0]}
                       alt="Sale Item"
                     />
                   </Carousel.Item>
                 )}
-            </Carousel>
+                {saleItem.pictures && saleItem.pictures[1] && (
+                  <Carousel.Item>
+                    <img
+                      className="d-block w-100"
+                      src={saleItem.pictures[1]}
+                      alt="Sale Item"
+                    />
+                  </Carousel.Item>
+                )}
+
+                {saleItem.pictures &&
+                  saleItem.pictures[2] &&
+                  saleItem.pictures[2] && (
+                    <Carousel.Item>
+                      <img
+                        className="d-block w-100"
+                        src={saleItem.pictures[2]}
+                        alt="Sale Item"
+                      />
+                    </Carousel.Item>
+                  )}
+              </Carousel>
+            </Container>
 
             <Container className="mt-4">
               <Row>

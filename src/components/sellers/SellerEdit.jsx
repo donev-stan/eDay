@@ -15,13 +15,11 @@ export const SellerEdit = (props) => {
   const [redirect, setRedirect] = useState(false);
   const [error, setError] = useState(false);
 
-  console.log(props);
   useEffect(() => {
     const seller = getLoggedSeller();
 
     // If a try to edit another user
     if (props.computedMatch.params.id !== seller.id.toString()) {
-      console.log(props.computedMatch.params.id, seller.id);
       setError(
         `You tried to access different user's data so you were redirected to edit your own profile :)`
       );
