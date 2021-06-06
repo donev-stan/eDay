@@ -1,70 +1,60 @@
 import React, { useState, useEffect } from "react";
 import { deleteSeller, getSellerByID } from "../../core/services/SellerService";
+import { getLoggedSeller, logout } from "../../core/services/AuthService";
+import { Link } from "react-router-dom";
+import { getSalesBySellerID } from "../../core/services/SaleService";
+import { SaleCard } from "../sales/SaleCard";
+
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { getLoggedSeller, logout } from "../../core/services/AuthService";
-import { Link } from "react-router-dom";
-import { getSalesBySellerID } from "../../core/services/SaleService";
-import { SaleCard } from "../sales/SaleCard";
 
 export const Seller = (props) => {
   const [seller, setSeller] = useState({});
   const [isSeller, setIsSeller] = useState(false);
   const [sellerSales, setSellerSales] = useState([]);
-  // const [redirect, setRedirect] = useState(false);
-  // const [redirectPath, setRedirectPath] = useState("/sellers");
 
   useEffect(() => {
-    if (props.computedMatch.params.id) {
-      getSellerByID(props.computedMatch.params.id)
-        .then((response) => {
-          setSeller(response.data);
-        })
-        .then(async (_) => {
-          setSellerSales(await getSalesBySellerID(seller.id));
-        });
-    } else {
-      setIsSeller(true);
-      const loggedSeller = getLoggedSeller();
-      setSeller(loggedSeller);
+    const loggedSeller = getLoggedSeller();
 
-      (async () => {
-        setSellerSales(await getSalesBySellerID(seller.id));
-      })();
+    // Determine seller
+    if (props.computedMatch.params.id) {
+      if (props.computedMatch.params.id === loggedSeller.id.toString()) {
+        setSeller(loggedSeller);
+        setIsSeller(true);
+      } else {
+        getSellerByID(props.computedMatch.params.id).then((response) => {
+          setSeller(response.data);
+        });
+      }
+    } else {
+      setSeller(loggedSeller);
+      setIsSeller(true);
     }
+
+    // Get Sales by this seller
+    getSalesBySellerID(seller.id).then((response) => {
+      setSellerSales(response);
+    });
   }, [props.computedMatch.params.id, seller.id]);
 
-  const userLogout = (e) => {
-    logout();
-    // setRedirectPath("/login");
-    // setRedirect(true);
-  };
-
-  const userDelete = (e) => {
-    // deleteSeller(seller.id).then((_) => {
-    //   setRedirect(true);
-    // });
-    deleteSeller(seller.id);
-  };
-
-  const userEdit = (e) => {
-    // if (seller.id) {
-    //   setRedirectPath(`/sellers/edit/${seller.id}`);
-    //   setRedirect(true);
-    // }
-  };
+  const userLogout = (e) => logout();
+  const userDelete = (e) => deleteSeller(seller.id);
 
   return (
     <>
-      {/* {redirect && <Redirect to={redirectPath} />} */}
       <Container className="mt-4">
         <Row className="my-4">
           <Col lg={4} className="my-2 text-center">
-            <Image src={seller.picture} thumbnail alt="" style={borderShadow} />
+            <Image
+              src={seller.picture}
+              thumbnail
+              alt="Avatar"
+              style={borderShadow}
+            />
           </Col>
           <Col lg={8} className="my-2">
             <Card className="text-center">
@@ -81,7 +71,7 @@ export const Seller = (props) => {
               {isSeller && (
                 <>
                   <Col>
-                    <Link to={`/sellers/edit/${seller.id}`}>
+                    <Link to={`/login`}>
                       <Button variant="info" onClick={userLogout}>
                         Logout
                       </Button>
@@ -89,9 +79,7 @@ export const Seller = (props) => {
                   </Col>
                   <Col>
                     <Link to={`/sellers/edit/${seller.id}`}>
-                      <Button variant="warning" onClick={userEdit}>
-                        Edit Profile
-                      </Button>
+                      <Button variant="warning">Edit Profile</Button>
                     </Link>
                   </Col>
                   <Col>
@@ -106,9 +94,12 @@ export const Seller = (props) => {
             </Row>
           </Col>
         </Row>
-        <Row className="mt-4">
-          <h3>{seller.name} Currently For Sale: </h3>
-        </Row>
+
+        {sellerSales && (
+          <Row className="mt-4">
+            <h3>Offerings: </h3>
+          </Row>
+        )}
 
         <Row className="mb-4">
           {sellerSales &&

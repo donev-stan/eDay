@@ -21,7 +21,7 @@ export const SellerEdit = (props) => {
 
     // If a try to edit another user
     if (props.computedMatch.params.id !== seller.id.toString()) {
-        console.log(props.computedMatch.params.id, seller.id);
+      console.log(props.computedMatch.params.id, seller.id);
       setError(
         `You tried to access different user's data so you were redirected to edit your own profile :)`
       );
@@ -56,7 +56,7 @@ export const SellerEdit = (props) => {
 
   return (
     <>
-      {redirect && <Redirect to={`/sellers/${sellerData.id}`} />}
+      {redirect && <Redirect to="/sellers" />}
       <Container className="my-4">
         <Form onSubmit={onFormSubmit}>
           {error && (
@@ -178,7 +178,7 @@ export const SellerEdit = (props) => {
           <Row className="text-center">
             <Col>
               <Button type="submit" className="mb-3">
-                Save User
+                Update User Profile
               </Button>
             </Col>
           </Row>

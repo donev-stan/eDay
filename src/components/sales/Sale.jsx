@@ -111,7 +111,7 @@ export const Sale = (props) => {
               </Row>
               <h6>Created: {saleItem.createdDate}</h6>
               <h6>Updated: {saleItem.lastUpdated}</h6>
-              {saleItem.condition !== "" && "Condition:"}{" "}
+              {saleItem.condition && saleItem.condition !== "" && "Condition:"}{" "}
               <Badge variant={badgeConditionColor}>{saleItem.condition}</Badge>
             </Container>
 

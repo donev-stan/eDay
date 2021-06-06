@@ -38,24 +38,6 @@
       ],
       "createdDate": "2021-06-05T02:39:27.478Z",
       "id": 7
-    },
-    {
-      "firstName": "Stanislav",
-      "lastName": "Donev",
-      "phone": "0895955205",
-      "email": "donev.stanislavv@gmail.com",
-      "password": "123",
-      "address": {
-        "city": "Nova Zagora",
-        "zip": "8900"
-      },
-      "picture": "https://robohash.org/set_set5/StanislavDonev10?size=300x300",
-      "badges": [
-        "New"
-      ],
-      "createdDate": "2021-06-06T05:13:02.643Z",
-      "id": 8,
-      "bio": "ascascasca"
     }
   ],
   "sales": [
@@ -148,21 +130,6 @@
       "createdDate": "2021-06-05T05:06:21.138Z",
       "lastUpdated": "2021-06-05T05:09:28.507Z",
       "id": 9
-    },
-    {
-      "title": "Updated",
-      "description": "ascasascascasca",
-      "price": "122999",
-      "condition": "Damaged",
-      "creatorID": 7,
-      "createdDate": "2021-06-05T20:00:19.037Z",
-      "lastUpdated": "2021-06-06T04:02:59.345Z",
-      "id": 10,
-      "pictures": [
-        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/airpods-max-select-skyblue-202011?wid=470&hei=556&fmt=png-alpha&.v=1604022365000",
-        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/airpods-max-select-pink-202011?wid=470&hei=556&fmt=png-alpha&.v=1604022365000",
-        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/airpods-max-select-silver-202011?wid=470&hei=556&fmt=png-alpha&.v=1604021221000"
-      ]
     }
   ]
 }

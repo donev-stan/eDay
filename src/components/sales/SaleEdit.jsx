@@ -133,6 +133,7 @@ export const SaleEdit = (props) => {
               <option value={saleItem.condition}>
                 Current:{" "}
                 {saleItem.condition !== "" ? saleItem.condition : "None"}
+                {!saleItem.condition && "None"}
               </option>
               <option value="New">New</option>
               <option value="Refurbished">Refurbished</option>
