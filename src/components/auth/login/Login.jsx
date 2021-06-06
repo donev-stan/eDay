@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
-import { login } from "../../../core/services/AuthService";
+import { login, getLoggedSeller } from "../../../core/services/AuthService";
 import { Redirect, Link } from "react-router-dom";
 
 export const Login = () => {
@@ -15,6 +15,9 @@ export const Login = () => {
   const [redirect, setRedirect] = useState(false);
   const [error, setError] = useState(false);
 
+  useEffect(() => {
+    if (getLoggedSeller()) setRedirect(true);
+  }, []);
 
   const onInputChange = (event) => {
     event.persist();
@@ -37,7 +40,7 @@ export const Login = () => {
 
   return (
     <>
-      {redirect && <Redirect to="/sales" />}
+      {redirect && <Redirect to="/" />}
       <Container className="my-4">
 
         {

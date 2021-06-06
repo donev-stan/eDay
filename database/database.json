@@ -38,6 +38,24 @@
       ],
       "createdDate": "2021-06-05T02:39:27.478Z",
       "id": 7
+    },
+    {
+      "firstName": "Stanislav",
+      "lastName": "Donev",
+      "phone": "0895955205",
+      "email": "donev.stanislavv@gmail.com",
+      "password": "123",
+      "address": {
+        "city": "Nova Zagora",
+        "zip": "8900"
+      },
+      "picture": "https://robohash.org/set_set5/StanislavDonev10?size=300x300",
+      "badges": [
+        "New"
+      ],
+      "createdDate": "2021-06-06T05:13:02.643Z",
+      "id": 8,
+      "bio": "ascascasca"
     }
   ],
   "sales": [

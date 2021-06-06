@@ -1,58 +1,28 @@
 import React, { useState, useEffect } from "react";
+import { getLoggedSeller, login } from "../../../core/services/AuthService";
+import { Redirect } from "react-router";
+import { saveSeller } from "../../../core/services/SellerService";
+
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
-import { getLoggedSeller, login } from "../../../core/services/AuthService";
-import { Redirect } from "react-router";
-import {
-  saveSeller,
-  getSellerByID,
-} from "../../../core/services/SellerService";
 
-export const Register = (props) => {
-  const [userData, setUserData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    bio: "",
-    password: "",
-    rating: 0,
-    // address: {
-    //   city: "",
-    //   zip: "",
-    // },
-  });
+export const Register = () => {
+  const [sellerData, setSellerData] = useState({});
   const [redirect, setRedirect] = useState(false);
-  const [redirectPath, setRedirectPath] = useState("/sales");
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    if (props.match.params.id) {
-      getSellerByID(props.match.params.id)
-        .then((response) => {
-          setUserData(response.data);
-          // setRedirectPath(`/sellers/${props.match.params.id}`);
-          setRedirectPath(`/sellers`);
-        })
-        .then((_) => {
-          const loggedSeller = getLoggedSeller();
-
-          if (!loggedSeller || loggedSeller.id !== userData.id) {
-            setRedirectPath("/sellers");
-            setRedirect(true);
-          }
-        });
-    }
-  }, [props.match.params.id, userData.id]);
+    if (getLoggedSeller()) setRedirect(true);
+  }, []);
 
   const onInputChange = (event) => {
     event.persist();
 
-    setUserData((prevState) => ({
+    setSellerData((prevState) => ({
       ...prevState,
       [event.target.name]: event.target.value,
     }));
@@ -61,17 +31,17 @@ export const Register = (props) => {
   const onFormSubmit = (event) => {
     event.preventDefault();
 
-    saveSeller(userData)
+    saveSeller(sellerData)
       .then((_) => {
         setRedirect(true);
-        login(userData);
+        login(sellerData);
       })
       .catch((error) => setError(error.message));
   };
 
   return (
     <>
-      {redirect && <Redirect to={redirectPath} />}
+      {redirect && <Redirect to="/" />}
       <Container className="my-4">
         <Form onSubmit={onFormSubmit}>
           {error && (
@@ -88,24 +58,8 @@ export const Register = (props) => {
               className="my-1"
               name="picture"
               onChange={onInputChange}
-              value={userData.picture}
             />
           </Form.Group>
-          {/* <Form.Group className="my-2 mb-4">
-            <Form.Label>Avatar</Form.Label>
-            <select
-              name="avatar"
-              className="form-control"
-              onChange={onInputChange}
-            >
-              <option value="/">None. I used my own image!</option>
-              <option value="/set_set1">Robot</option>
-              <option value="/set_set2">Monster</option>
-              <option value="/set_set3">Robot Head</option>
-              <option value="/set_set4">Cat</option>
-              <option value="/set_sete5">Human (*Image Loads slower*. Humans take more time to compute)</option>
-            </select>
-          </Form.Group> */}
 
           {/* Name*/}
           <Row className="my-3">
@@ -115,7 +69,6 @@ export const Register = (props) => {
                 placeholder="First name"
                 name="firstName"
                 onChange={onInputChange}
-                value={userData.firstName}
                 required
               />
             </Col>
@@ -124,7 +77,6 @@ export const Register = (props) => {
                 placeholder="Last name"
                 name="lastName"
                 onChange={onInputChange}
-                value={userData.lastName}
                 required
               />
             </Col>
@@ -138,7 +90,6 @@ export const Register = (props) => {
               rows={3}
               name="bio"
               onChange={onInputChange}
-              value={userData.bio}
             />
           </Form.Group>
 
@@ -149,7 +100,6 @@ export const Register = (props) => {
                 placeholder="City"
                 name="city"
                 onChange={onInputChange}
-                value={userData.city}
               />
             </Col>
             <Col>
@@ -157,7 +107,6 @@ export const Register = (props) => {
                 placeholder="Zip"
                 name="zip"
                 onChange={onInputChange}
-                value={userData.zip}
               />
             </Col>
           </Row>
@@ -170,7 +119,6 @@ export const Register = (props) => {
               placeholder="Phone number"
               name="phone"
               onChange={onInputChange}
-              value={userData.phone}
               required
             />
           </Form.Group>
@@ -183,7 +131,6 @@ export const Register = (props) => {
               placeholder="Enter email"
               name="email"
               onChange={onInputChange}
-              value={userData.email}
               required
             />
             <Form.Text className="text-muted">
@@ -199,7 +146,6 @@ export const Register = (props) => {
               placeholder="Password"
               name="password"
               onChange={onInputChange}
-              value={userData.password}
               required
             />
           </Form.Group>
@@ -208,7 +154,7 @@ export const Register = (props) => {
           <Row className="text-center">
             <Col>
               <Button type="submit" className="mb-3">
-                Save User
+                Register
               </Button>
             </Col>
           </Row>
