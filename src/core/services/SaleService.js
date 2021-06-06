@@ -11,6 +11,25 @@ export const itemCondition = {
   Unknown: "Unknown",
 };
 
+export function badgeColor(condition) {
+  switch (condition) {
+    case itemCondition.New:
+      return "success";
+
+    case itemCondition.Refurbished:
+      return "info";
+
+    case itemCondition.Used:
+      return "warning";
+
+    case itemCondition.Damaged:
+      return "danger";
+
+    default:
+      return "dark";
+  }
+}
+
 export async function getAllSales(searchParam) {
   const sales = (await axios.get(`${url}/sales`)).data;
 
@@ -28,24 +47,22 @@ export function getSaleByID(sellerID) {
 }
 
 export function saveItem(item) {
-  let { link1, link2, link3, ...tempItem } = item;
+  let { itemImageLink1, itemImageLink2, itemImageLink3, ...tempItem } = item;
 
   if (item.id) {
     const updatedItem = {
       ...tempItem,
-      pictures:
-        item.pictures.length !== 0 ? item.pictures : [link1, link2, link3],
+      pictures: [itemImageLink1, itemImageLink2, itemImageLink3],
       lastUpdated: new Date(),
     };
 
-    console.log(updatedItem);
     return axios.put(`${url}/sales/${item.id}`, updatedItem);
   }
 
   const newItem = {
     ...tempItem,
     creatorID: getLoggedSeller().id,
-    pictures: [link1, link2, link3],
+    pictures: [itemImageLink1, itemImageLink2, itemImageLink3],
     createdDate: new Date(),
     lastUpdated: new Date(),
   };
@@ -64,7 +81,6 @@ export async function getSalesBySellerID(sellerID) {
 }
 
 export function returnReadableDate(unreadableDate) {
-
   if (!unreadableDate) return;
 
   let [date, time] = unreadableDate.split("T");

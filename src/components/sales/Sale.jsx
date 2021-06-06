@@ -5,82 +5,55 @@ import Col from "react-bootstrap/Col";
 import Carousel from "react-bootstrap/Carousel";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
-import ListGroup from "react-bootstrap/ListGroup";
+// import ListGroup from "react-bootstrap/ListGroup";
 import Badge from "react-bootstrap/Badge";
-import { getSalesBySellerID, returnReadableDate } from "../../core/services/SaleService";
+import {
+  badgeColor,
+  // getSalesBySellerID,
+  returnReadableDate,
+} from "../../core/services/SaleService";
 import { deleteSale, getSaleByID } from "../../core/services/SaleService";
 import { getSellerByID } from "../../core/services/SellerService";
-import { getLoggedSeller } from "../../core/services/AuthService";
-import { itemCondition } from "../../core/services/SaleService";
 import { Link, Redirect } from "react-router-dom";
 
-// import { SaleImage } from "./SaleImage";
-
 export const Sale = (props) => {
-  const [sale, setSale] = useState({
-    id: 1,
-    title: "Razer Blade 15",
-    description: "Blabla bla bla",
-    creatorID: 3,
-    createdDate: "2021-05-21T06:11:51.870Z",
-    lastUpdated: "2021-05-21T06:11:51.870Z",
-    category: "electronics",
-    pictures: [
-      "https://picsum.photos/200/100?random=1",
-      "https://picsum.photos/200/100?random=2",
-      "https://picsum.photos/200/100?random=3",
-    ],
-  });
+  const [saleItem, setSaleItem] = useState({ pictures: [] });
   const [seller, setSeller] = useState({});
-  const [isSeller, setIsSeller] = useState(false);
+  const [isSellerOwner, setIsSellerOwner] = useState(false);
   const [redirect, setRedirect] = useState(false);
-  const [sellerSales, setSellerSales] = useState(null);
+  // const [sellerSales, setSellerSales] = useState(null);
 
   useEffect(() => {
+    // Get Sale Item Data
     getSaleByID(props.computedMatch.params.id)
       .then((response) => {
-        response.data.createdDate = returnReadableDate(response.data.createdDate);
-        response.data.lastUpdated = returnReadableDate(response.data.lastUpdated);
-        setSale(response.data);
+        response.data.createdDate = returnReadableDate(
+          response.data.createdDate
+        );
+        response.data.lastUpdated = returnReadableDate(
+          response.data.lastUpdated
+        );
+        setSaleItem(response.data);
+        console.log(response.data);
       })
       .then((_) => {
-        getSellerByID(sale.creatorID).then((response) => {
-          setSeller(response.data);
+        // Get Sale Item Owner
 
-          const loggedSeller = getLoggedSeller();
-          if (loggedSeller.id === sale.creatorID) {
-            setIsSeller(true);
-          }
-        });
-      })
-      .then((_) => {
-        // setSellerSales(getSalesBySellerID(seller.id));
+        if (props.loggedUser.id !== saleItem.creatorID) {
+          // if not logged user
+          getSellerByID(saleItem.creatorID).then((response) => {
+            setSeller(response.data);
+          });
+        } else {
+          // owner is logged user
+          setSeller(props.loggedUser);
+          setIsSellerOwner(true);
+        }
       });
-  }, [props.computedMatch.params.id, sale.creatorID, seller.id]);
+  }, [props.computedMatch.params.id, saleItem.creatorID, props.loggedUser]);
 
   // Badge Condition Color
-  let badgeConditionColor = "";
-  switch (sale.condition) {
-    case itemCondition.New:
-      badgeConditionColor = "success";
-      break;
-
-    case itemCondition.Refurbished:
-      badgeConditionColor = "info";
-      break;
-
-    case itemCondition.Used:
-      badgeConditionColor = "warning";
-      break;
-
-    case itemCondition.Damaged:
-      badgeConditionColor = "danger";
-      break;
-
-    default:
-      badgeConditionColor = "dark";
-      break;
-  }
+  let badgeConditionColor = badgeColor(saleItem.condition);
 
   const onSaleDelete = (saleID) => {
     deleteSale(saleID).then((_) => {
@@ -93,86 +66,64 @@ export const Sale = (props) => {
       {redirect && <Redirect to="/sales" />}
       <Container className="my-4" fluid>
         <Row>
-          {/* Main content (sale item) */}
+          {/* Main content (saleItem item) */}
           <Col lg="8">
-            {/* Sale Item Pictures */}
-            <Carousel fade className="pl-2 pr-2 mt-2 text-center">
-              {sale.pictures[0] && (
-                <Carousel.Item style={{maxHeight: '75%', maxWidth: '75%'}}>
+            <Carousel fade className="pl-2 pr-2 mt-2">
+              {saleItem.pictures && saleItem.pictures[0] && (
+                <Carousel.Item style={{ maxHeight: "75%", maxWidth: "75%" }}>
                   <img
                     className="d-block w-100"
-                    src={sale.pictures[0]}
+                    src={saleItem.pictures[0]}
+                    alt="Sale Item"
+                  />
+                </Carousel.Item>
+              )}
+              {saleItem.pictures && saleItem.pictures[1] && (
+                <Carousel.Item style={{ maxHeight: "75%", maxWidth: "75%" }}>
+                  <img
+                    className="d-block w-100"
+                    src={saleItem.pictures[1]}
                     alt="Sale Item"
                   />
                 </Carousel.Item>
               )}
 
-              {sale.pictures[1] && (
-                <Carousel.Item style={{maxHeight: '75%', maxWidth: '75%'}}>
-                  <img
-                    className="d-block w-100"
-                    src={sale.pictures[1]}
-                    alt="Sale Item"
-                  />
-                </Carousel.Item>
-              )}
-
-              {sale.pictures[2] && (
-                <Carousel.Item style={{maxHeight: '75%', maxWidth: '75%'}}>
-                  <img
-                    className="d-block w-100"
-                    src={sale.pictures[2]}
-                    alt="Sale Item"
-                  />
-                </Carousel.Item>
-              )}
+              {saleItem.pictures &&
+                saleItem.pictures[2] &&
+                saleItem.pictures[2] && (
+                  <Carousel.Item style={{ maxHeight: "75%", maxWidth: "75%" }}>
+                    <img
+                      className="d-block w-100"
+                      src={saleItem.pictures[2]}
+                      alt="Sale Item"
+                    />
+                  </Carousel.Item>
+                )}
             </Carousel>
 
             <Container className="mt-4">
               <Row>
                 <Col sm={10}>
-                  <h2>{sale.title}</h2>
+                  <h2>{saleItem.title}</h2>
                 </Col>
                 <Col sm={2} className="text-center mt-2">
-                  <i>${sale.price}</i>
+                  <i>${saleItem.price}</i>
                 </Col>
               </Row>
-              <h6>Created: {sale.createdDate}</h6>
-              <h6>Updated: {sale.lastUpdated}</h6>
-              Condition:{" "}
-              <Badge variant={badgeConditionColor}>{sale.condition}</Badge>
+              <h6>Created: {saleItem.createdDate}</h6>
+              <h6>Updated: {saleItem.lastUpdated}</h6>
+              {saleItem.condition !== "" && "Condition:"}{" "}
+              <Badge variant={badgeConditionColor}>{saleItem.condition}</Badge>
             </Container>
 
             <Container className="mt-3">
-              <p>{sale.description}</p>
+              <p>{saleItem.description}</p>
             </Container>
-
-            {isSeller && (
-              <Container className="text-right">
-                <Row>
-                  <Col>
-                    <Link to={`/sales/edit/${sale.id}`}>
-                      <Button variant="warning">Edit Sale</Button>{" "}
-                    </Link>
-
-                    <Link>
-                      <Button
-                        variant="danger"
-                        onClick={() => onSaleDelete(sale.id)}
-                      >
-                        Delete Sale
-                      </Button>{" "}
-                    </Link>
-                  </Col>
-                </Row>
-              </Container>
-            )}
           </Col>
 
           {/* Side content (seller info) */}
           <Col className="text-center mt-2" lg="4">
             <Container className="my-4">
-              {/* Seller Picture */}
               <Image src={seller.picture} roundedCircle style={borderShadow} />
               <Container className="mt-4 mb-4">
                 <h3>
@@ -183,14 +134,38 @@ export const Sale = (props) => {
               </Container>
             </Container>
 
+            {isSellerOwner && (
+              <Container className="text-center">
+                <Row className="mb-2">
+                  <Col>
+                    <Link to={`/sales/edit/${saleItem.id}`}>
+                      <Button variant="warning">Edit Sale</Button>{" "}
+                    </Link>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <Link>
+                      <Button
+                        variant="danger"
+                        onClick={() => onSaleDelete(saleItem.id)}
+                      >
+                        Delete Sale
+                      </Button>{" "}
+                    </Link>
+                  </Col>
+                </Row>
+              </Container>
+            )}
+
             <Container className="mt-4">
               {/* <h6>Other items for sale:</h6> */}
-              <ListGroup className="pl-4 pr-4">
+              {/* <ListGroup className="pl-4 pr-4">
                 {sellerSales &&
                   sellerSales.map((sale) => (
                     <ListGroup.Item>{sale}</ListGroup.Item>
                   ))}
-              </ListGroup>
+              </ListGroup> */}
             </Container>
           </Col>
         </Row>

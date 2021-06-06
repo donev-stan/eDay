@@ -4,12 +4,10 @@ import { getLoggedSeller } from '../services/AuthService'
 
 export const AuthorizedRoute = (props) => {
 
-    const seller = getLoggedSeller();
+    const loggedSeller = getLoggedSeller();
 
-    console.log(seller);
-
-    if (seller) {
-        return <props.component {...props} />
+    if (loggedSeller) {
+        return <props.component {...props} loggedUser={loggedSeller} />
     }
 
     return <Redirect to="/login" />

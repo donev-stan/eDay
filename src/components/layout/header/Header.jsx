@@ -24,7 +24,6 @@ const Header = withRouter((props) => {
   };
 
   const onSearchInputChange = (event) => {
-    // event.persist();
     setSeachParam(event.target.value);
   };
 
@@ -32,8 +31,7 @@ const Header = withRouter((props) => {
     <Navbar bg="dark" variant="dark" expand="md">
       <Navbar.Brand>
         <img
-          alt=""
-          // src="./logo-bag.png"
+          alt="eDay logo"
           // src="https://image.flaticon.com/icons/png/512/2984/2984530.png"
           src="https://image.flaticon.com/icons/png/512/4862/4862541.png"
           width="52"
@@ -51,7 +49,7 @@ const Header = withRouter((props) => {
           <Nav.Link as={Link} to="/sellers">
             Sellers
           </Nav.Link>
-          <Nav.Link as={Link} to="/sell">
+          <Nav.Link as={Link} to="/sales/create">
             Sell Item
           </Nav.Link>
         </Nav>

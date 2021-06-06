@@ -14,8 +14,9 @@ export async function getAllSellers(searchParam) {
   return sellers.filter(
     (seller) =>
       seller.firstName.toLowerCase().includes(searchParam.toLowerCase()) ||
+      seller.lastName.toLowerCase().includes(searchParam.toLowerCase()) ||
       seller.bio.toLowerCase().includes(searchParam.toLowerCase()) ||
-      seller.lastName.toLowerCase().includes(searchParam.toLowerCase())
+      seller.email.toLowerCase().includes(searchParam.toLowerCase())
   );
 }
 

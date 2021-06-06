@@ -9,8 +9,8 @@ import { Link } from "react-router-dom";
 export const SellerCard = ({seller}) => {
     return (
         <Col lg={4}>
-            <Card className="my-3" style={borderShadow}>
-              <Card.Img variant="top" src={seller.picture} style={{maxHeight: '400px'}} />
+            <Card className="my-3" style={borderShadow, {justifyContent: 'center'}}>
+              <Card.Img variant="top" src={seller.picture} style={{maxHeight: '400px', maxWidth: '400px'}} />
               <Card.Body>
                 <Card.Title>{seller.firstName} {seller.lastName}</Card.Title>
                 <Card.Text>{seller.bio}</Card.Text>

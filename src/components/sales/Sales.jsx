@@ -12,15 +12,17 @@ export const Sales = (props) => {
   useEffect(() => {
     const searchParam = props.location.search.split("=")[1];
 
-    getAllSales(searchParam).then((sales) => {
-      setSales(sales);
+    getAllSales(searchParam).then((returnedSales) => {
+      setSales(returnedSales);
       setError(false);
-      if (!(sales.length !== 0)) {
+      if (!(returnedSales.length !== 0)) {
         setError(true);
       }
     });
   }, [props.location.search]);
 
+
+  console.log(sales);
   return (
     <Container className="my-4 text-center" fluid style={{width: '80%'}}>
       <Row>
