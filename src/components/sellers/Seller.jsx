@@ -42,7 +42,9 @@ export const Seller = (props) => {
   }, [props.computedMatch.params.id, seller.id]);
 
   const userLogout = (e) => logout();
-  const userDelete = (e) => deleteSeller(seller.id);
+  const userDelete = (e) => {
+    deleteSeller(seller.id);
+  };
 
   return (
     <>
@@ -83,10 +85,10 @@ export const Seller = (props) => {
                     </Link>
                   </Col>
                   <Col>
-                    <Link to="/login">
-                      <Button variant="danger" onClick={userDelete}>
-                        Delete Profile
-                      </Button>
+                  <Link to={`/sales`}>
+                    <Button variant="danger" onClick={userDelete}>
+                      Delete Profile
+                    </Button>
                     </Link>
                   </Col>
                 </>

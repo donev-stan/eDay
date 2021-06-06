@@ -8,7 +8,20 @@ import { getSaleByID, saveItem } from "../../core/services/SaleService";
 import { getLoggedSeller } from "../../core/services/AuthService";
 
 export const SaleEdit = (props) => {
-  const [saleItem, setSaleItem] = useState({});
+  const [saleItem, setSaleItem] = useState({
+    pictures: [],
+    itemImageLink1: "",
+    itemImageLink2: "",
+    itemImageLink3: "",
+    title: "",
+    description: "",
+    price: "",
+    condition: "",
+    createdDate: "",
+    lastUpdated: "",
+    creatorID: 0,
+    id: 0,
+  });
   const [redirect, setRedirect] = useState(false);
   const [redirectPath, setRedirectPath] = useState("/");
 

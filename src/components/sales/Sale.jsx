@@ -15,41 +15,39 @@ import {
 import { deleteSale, getSaleByID } from "../../core/services/SaleService";
 import { getSellerByID } from "../../core/services/SellerService";
 import { Link, Redirect } from "react-router-dom";
+import { getLoggedSeller } from "../../core/services/AuthService";
 
 export const Sale = (props) => {
-  const [saleItem, setSaleItem] = useState({ pictures: [] });
+  const [saleItem, setSaleItem] = useState({});
   const [seller, setSeller] = useState({});
   const [isSellerOwner, setIsSellerOwner] = useState(false);
   const [redirect, setRedirect] = useState(false);
   // const [sellerSales, setSellerSales] = useState(null);
 
   useEffect(() => {
-    // Get Sale Item Data
-    getSaleByID(props.computedMatch.params.id)
-      .then((response) => {
-        response.data.createdDate = returnReadableDate(
-          response.data.createdDate
-        );
-        response.data.lastUpdated = returnReadableDate(
-          response.data.lastUpdated
-        );
-        setSaleItem(response.data);
-      })
-      .then((_) => {
-        // Get Sale Item Owner
+    const loggedSeller = getLoggedSeller();
 
-        if (props.loggedUser.id !== saleItem.creatorID) {
-          // if not logged user
+    // Get Sale Item Data
+    getSaleByID(props.computedMatch.params.id).then((response) => {
+      response.data.createdDate = returnReadableDate(response.data.createdDate);
+      response.data.lastUpdated = returnReadableDate(response.data.lastUpdated);
+      setSaleItem(response.data);
+
+      // Get Sale Item Owner
+      if (loggedSeller.id !== saleItem.creatorID) {
+        // if its not the logged user
+        if (saleItem.creatorID) {
           getSellerByID(saleItem.creatorID).then((response) => {
             setSeller(response.data);
           });
-        } else {
-          // owner is logged user
-          setSeller(props.loggedUser);
-          setIsSellerOwner(true);
         }
-      });
-  }, [props.computedMatch.params.id, saleItem.creatorID, props.loggedUser]);
+      } else {
+        // owner is logged user
+        setSeller(loggedSeller);
+        setIsSellerOwner(true);
+      }
+    });
+  }, [props.computedMatch.params.id, saleItem.creatorID]);
 
   // Badge Condition Color
   let badgeConditionColor = badgeColor(saleItem.condition);
@@ -111,7 +109,9 @@ export const Sale = (props) => {
               </Row>
               <h6>Created: {saleItem.createdDate}</h6>
               <h6>Updated: {saleItem.lastUpdated}</h6>
-              {saleItem.condition && saleItem.condition !== "" && "Condition:"}{" "}
+              {saleItem.condition &&
+                saleItem.condition !== "" &&
+                "Condition:"}{" "}
               <Badge variant={badgeConditionColor}>{saleItem.condition}</Badge>
             </Container>
 
@@ -144,14 +144,12 @@ export const Sale = (props) => {
                 </Row>
                 <Row>
                   <Col>
-                    <Link>
-                      <Button
-                        variant="danger"
-                        onClick={() => onSaleDelete(saleItem.id)}
-                      >
-                        Delete Sale
-                      </Button>{" "}
-                    </Link>
+                    <Button
+                      variant="danger"
+                      onClick={() => onSaleDelete(saleItem.id)}
+                    >
+                      Delete Sale
+                    </Button>{" "}
                   </Col>
                 </Row>
               </Container>

@@ -42,14 +42,11 @@ export const Login = () => {
     <>
       {redirect && <Redirect to="/" />}
       <Container className="my-4">
-
-        {
-          error && (
-            <Alert key={3} variant={"danger"} className="text-center">
-              {error}
+        {error && (
+          <Alert key={3} variant={"danger"} className="text-center">
+            {error}
           </Alert>
-          )
-        }
+        )}
 
         <Form onSubmit={onFormSubmit}>
           {/* Email */}
@@ -59,6 +56,7 @@ export const Login = () => {
               type="email"
               placeholder="Enter email"
               name="email"
+              autoComplete="on"
               onChange={onInputChange}
             />
           </Form.Group>
@@ -70,6 +68,7 @@ export const Login = () => {
               type="password"
               placeholder="Password"
               name="password"
+              autoComplete="on"
               onChange={onInputChange}
             />
           </Form.Group>
@@ -88,20 +87,33 @@ export const Login = () => {
             controlId="formBasicRegistration"
           >
             <Form.Label>Don't have an account yet?</Form.Label> <br />
-            <Container className="justify-content-center my-2" style={{width: '80%'}}>
+            <Container
+              className="justify-content-center my-2"
+              style={{ width: "80%" }}
+            >
               <Row>
                 <Col>
-                  <Image src="https://image.flaticon.com/icons/png/512/2921/2921112.png" style={imgStyles} rounded />
+                  <Image
+                    src="https://image.flaticon.com/icons/png/512/2921/2921112.png"
+                    style={imgStyles}
+                    rounded
+                  />
                 </Col>
 
                 <Col>
                   <Card.Link as={Link} to={`/register`}>
-                    <Button variant="success" className="mt-2">Register</Button>
+                    <Button variant="success" className="mt-2">
+                      Register
+                    </Button>
                   </Card.Link>
                 </Col>
 
                 <Col>
-                  <Image src="https://image.flaticon.com/icons/png/512/3456/3456426.png" style={imgStyles} rounded />
+                  <Image
+                    src="https://image.flaticon.com/icons/png/512/3456/3456426.png"
+                    style={imgStyles}
+                    rounded
+                  />
                 </Col>
               </Row>
             </Container>
@@ -113,6 +125,6 @@ export const Login = () => {
 };
 
 const imgStyles = {
-  width: '80px',
-  height: '80px',
+  width: "80px",
+  height: "80px",
 };

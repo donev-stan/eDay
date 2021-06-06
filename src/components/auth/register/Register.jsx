@@ -57,6 +57,7 @@ export const Register = () => {
               placeholder="Place image link or leave blank for randomly generated avatar (takes while to load at first)"
               className="my-1"
               name="picture"
+              autoComplete="on"
               onChange={onInputChange}
             />
           </Form.Group>
@@ -68,6 +69,7 @@ export const Register = () => {
               <Form.Control
                 placeholder="First name"
                 name="firstName"
+                autoComplete="on"
                 onChange={onInputChange}
                 required
               />
@@ -76,6 +78,7 @@ export const Register = () => {
               <Form.Control
                 placeholder="Last name"
                 name="lastName"
+                autoComplete="on"
                 onChange={onInputChange}
                 required
               />
@@ -89,6 +92,7 @@ export const Register = () => {
               as="textarea"
               rows={3}
               name="bio"
+              autoComplete="on"
               onChange={onInputChange}
             />
           </Form.Group>
@@ -99,6 +103,7 @@ export const Register = () => {
               <Form.Control
                 placeholder="City"
                 name="city"
+                autoComplete="on"
                 onChange={onInputChange}
               />
             </Col>
@@ -106,6 +111,7 @@ export const Register = () => {
               <Form.Control
                 placeholder="Zip"
                 name="zip"
+                autoComplete="on"
                 onChange={onInputChange}
               />
             </Col>
@@ -118,6 +124,7 @@ export const Register = () => {
               type="text"
               placeholder="Phone number"
               name="phone"
+              autoComplete="on"
               onChange={onInputChange}
               required
             />
@@ -130,6 +137,7 @@ export const Register = () => {
               type="email"
               placeholder="Enter email"
               name="email"
+              autoComplete="on"
               onChange={onInputChange}
               required
             />
@@ -145,6 +153,7 @@ export const Register = () => {
               type="password"
               placeholder="Password"
               name="password"
+              autoComplete="on"
               onChange={onInputChange}
               required
             />
