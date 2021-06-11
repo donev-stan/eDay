@@ -28,25 +28,25 @@ export const SaleEdit = (props) => {
   // Get Sale Item Data
   useEffect(() => {
     if (props.computedMatch.params.id) {
-      getSaleByID(props.computedMatch.params.id).then((response) => {
+      getSaleByID(props.computedMatch.params.id).then(({data : sale}) => {
         const loggedUser = getLoggedSeller();
 
-        if (response.data.creatorID !== loggedUser.id) {
+        if (sale.creatorID !== loggedUser.id) {
           setRedirectPath(`/sales/${props.computedMatch.params.id}`);
           setRedirect(true);
         } else {
-          console.log(response.data);
-          if (response.data.pictures && response.data.pictures[0]) {
-            response.data.itemImageLink1 = response.data.pictures[0];
+          console.log(sale);
+          if (sale.pictures && sale.pictures[0]) {
+            sale.itemImageLink1 = sale.pictures[0];
           }
-          if (response.data.pictures && response.data.pictures[1]) {
-            response.data.itemImageLink2 = response.data.pictures[1];
+          if (sale.pictures && sale.pictures[1]) {
+            sale.itemImageLink2 = sale.pictures[1];
           }
-          if (response.data.pictures && response.data.pictures[2]) {
-            response.data.itemImageLink3 = response.data.pictures[2];
+          if (sale.pictures && sale.pictures[2]) {
+            sale.itemImageLink3 = sale.pictures[2];
           }
           //   delete response.data.pictures;
-          setSaleItem(response.data);
+          setSaleItem(sale);
         }
       });
       // .catch((error) => {

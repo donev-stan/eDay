@@ -39,21 +39,20 @@
       "id": 2
     },
     {
-      "email": "admin@admin.com",
-      "password": "admin",
-      "firstName": "Admin",
-      "lastName": "Admin",
-      "bio": "Admin for testing purposes.",
-      "phone": "+359 89593 7859",
+      "firstName": "Stanislav",
+      "lastName": "Donev",
+      "phone": "0895955205",
+      "email": "donev.stanislavv@gmail.com",
+      "password": "111",
       "address": {
-        "city": "Admin City",
-        "zip": "0101"
+        "city": "Nova Zagora",
+        "zip": "8900"
       },
-      "picture": "https://robohash.org/set_set5/AdminAdmin3030?size=300x300",
+      "picture": "https://robohash.org/set_set5/StanislavDonev7?size=300x300",
       "badges": [
-        "Admin"
+        "New"
       ],
-      "createdDate": "2021-06-06T08:14:16.820Z",
+      "createdDate": "2021-06-11T09:19:54.454Z",
       "id": 3
     }
   ],
@@ -70,7 +69,7 @@
         "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/refurb-mbp13touchbar-space-gallery-2018_AV5?wid=1000&hei=1000&fmt=jpeg&qlt=95&.v=1534805006803"
       ],
       "createdDate": "2021-06-05T00:37:45.409Z",
-      "lastUpdated": "2021-06-05T03:26:47.952Z",
+      "lastUpdated": "2021-06-11T00:53:02.086Z",
       "id": 1
     },
     {
